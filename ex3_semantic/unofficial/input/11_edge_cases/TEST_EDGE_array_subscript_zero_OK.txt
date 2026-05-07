@@ -1,0 +1,11 @@
+// Edge case - Array subscript of zero (boundary)
+// Valid - Array index can be 0
+
+array IntArray = int[];
+
+void main() {
+    IntArray arr := new int[5];
+    arr[0] := 100;
+    int first := arr[0];
+    PrintInt(first);
+}

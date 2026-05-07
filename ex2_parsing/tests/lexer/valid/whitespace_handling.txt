@@ -1,0 +1,11 @@
+int    x;
+
+int		y;
+
+int
+z;
+
+void  func  (  int  a  ,  int  b  )  {
+	int	c	:=	a	+	b	;
+	return;
+}

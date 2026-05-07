@@ -1,0 +1,12 @@
+// Tests FUNC-007 - Arguments must have compatible types with parameters
+// ERROR - Calling function with wrong argument type
+
+int add(int a, int b) {
+    return a + b;
+}
+
+void main() {
+    string msg := "hello";
+    int result := add(5, msg);
+    PrintInt(result);
+}

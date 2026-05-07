@@ -1,0 +1,6 @@
+int x := 0;
+void main () {
+	while(1 * x) {
+		int y := 5;
+	}
+}

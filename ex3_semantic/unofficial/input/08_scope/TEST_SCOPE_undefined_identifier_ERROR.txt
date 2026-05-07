@@ -1,0 +1,11 @@
+// Tests SCOPE-009 - All identifiers must be declared
+// ERROR - Using undefined variable
+
+void compute() {
+    int result := unknownVar + 10;
+    PrintInt(result);
+}
+
+void main() {
+    compute();
+}

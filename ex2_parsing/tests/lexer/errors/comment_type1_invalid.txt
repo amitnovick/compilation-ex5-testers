@@ -1,0 +1,2 @@
+// This comment has an invalid character: @
+int x;

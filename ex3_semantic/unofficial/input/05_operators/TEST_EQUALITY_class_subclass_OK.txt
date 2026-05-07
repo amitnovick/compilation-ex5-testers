@@ -1,0 +1,19 @@
+// Tests OP-012 and OP-013 - Equality testing between subclass and superclass
+// Subclass and superclass objects can be compared for equality
+
+class Animal {
+    int age;
+}
+
+class Dog extends Animal {
+    string breed;
+}
+
+void main() {
+    Animal a;
+    Dog d;
+    int result;
+    a := new Animal;
+    d := new Dog;
+    result := a = d;
+}

@@ -1,0 +1,10 @@
+// Tests TYPE-004 - Array types are valid (array of int)
+// Tests that arrays can be defined with primitive types
+
+array IntArray = int[];
+
+void main() {
+    IntArray numbers;
+    numbers := new int[10];
+    numbers[0] := 42;
+}

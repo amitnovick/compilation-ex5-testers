@@ -1,0 +1,15 @@
+// Test ARRAY-011 - Different array types over same element type are not interchangeable (Table 5)
+array gradesArray = int[];
+array IDsArray = int[];
+
+void F(IDsArray ids)
+{
+    PrintInt(ids[6]);
+}
+
+void main()
+{
+    IDsArray ids := new int[8];
+    gradesArray grades := new int[8];
+    F(grades);
+}

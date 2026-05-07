@@ -1,0 +1,12 @@
+int x;
+int x1;
+int x123;
+int myVariable;
+int myVeryLongIdentifierName123;
+int a;
+int abc;
+int aBc123DeF456;
+int leadingLetter;
+int camelCaseIdentifier;
+int PascalCaseIdentifier;
+int UPPERCASE;

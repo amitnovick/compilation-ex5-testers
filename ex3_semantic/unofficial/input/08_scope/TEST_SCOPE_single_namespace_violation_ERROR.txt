@@ -1,0 +1,13 @@
+// Tests SCOPE-005 - Single namespace - type and variable names conflict
+// ERROR - Using same name for class and variable
+
+class Counter {
+    int value;
+}
+
+int Counter := 42;
+
+void main() {
+    Counter c := new Counter;
+    PrintInt(Counter);
+}

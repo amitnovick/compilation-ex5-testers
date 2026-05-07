@@ -1,0 +1,12 @@
+int a := 10;
+int b := 20;
+int c := 0;
+
+void main() {
+    int x;
+    int y;
+    x := a + b; 
+    y := x + c; 
+    PrintInt(x);
+    PrintInt(y);
+}

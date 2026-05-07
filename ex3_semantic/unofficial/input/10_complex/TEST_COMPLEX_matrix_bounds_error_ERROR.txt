@@ -1,0 +1,13 @@
+// Complex error test - Array subscript with negative constant
+// ERROR - Negative array subscript
+
+array IntArray = int[];
+array Matrix = IntArray[];
+
+void main() {
+    Matrix mat := new IntArray[3];
+    IntArray row := new int[5];
+    mat[0] := row;
+    int value := mat[0][-1];
+    PrintInt(value);
+}

@@ -1,0 +1,28 @@
+class MyClass extends BaseClass {
+    int x;
+    string name;
+    int method(int param1, string param2) {
+        IntArray arr := new int[10];
+        if (x < 10) {
+            x := x + 1;
+        } else {
+            while (x > 0) {
+                x := x - 1;
+            }
+        }
+        return x;
+    }
+}
+
+array IntArray = int[];
+IntArray numbers := new int[100];
+
+void main() {
+    MyClass obj := new MyClass;
+    int result := obj.method(5, "test");
+    if (result = 0) {
+        int div := 10 / 2;
+        int sub := 10 - 3;
+        int mul := 5 * 3;
+    }
+}

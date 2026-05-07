@@ -1,0 +1,9 @@
+class Point { int x; }
+array IntArray = int[];
+
+void func() {
+    Point p := new Point;
+    IntArray arr := new int[10];
+    int a := p.x;
+    int b := arr[0];
+}

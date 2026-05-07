@@ -1,0 +1,15 @@
+// Test - nil can be assigned to class type (Table 4)
+class Father
+{
+    int i;
+}
+
+void foo(Father f)
+{
+    PrintInt(f.i);
+}
+
+void main()
+{
+    foo(nil);
+}

@@ -1,0 +1,16 @@
+// Tests OP-011 and OP-013 - Equality testing on classes of same type
+// Objects of same class can be compared for equality
+
+class Point {
+    int x;
+    int y;
+}
+
+void main() {
+    Point p1;
+    Point p2;
+    int result;
+    p1 := new Point;
+    p2 := new Point;
+    result := p1 = p2;
+}

@@ -1,0 +1,8 @@
+// Test ASSIGN-001 - Assign int to int
+void main()
+{
+    int x := 5;
+    int y := x;
+    y := x + 10;
+    PrintInt(y);
+}

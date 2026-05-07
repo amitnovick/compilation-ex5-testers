@@ -1,0 +1,7 @@
+void main() {
+    int Banana := 1;
+    int apple := 2;
+    int cherry := 3;
+    int zebra := 4;
+    int x := Banana + apple + cherry + zebra;
+}

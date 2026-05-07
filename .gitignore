@@ -1,0 +1,57 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+build/
+.gradle/
+
+# Generated files
+src/Lexer.java
+src/Parser.java
+src/sym.java
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Build outputs
+SEMANT
+PARSER
+LEXER
+output/*.txt
+
+# Environment
+.env
+.env.*
+
+*.zip
+
+self_check_output/
+
+ANALYZER
+
+/bin/
+/COMPILER
+/src/TokenNames.java
+
+output/*.s
+output/*.spim
+output/*.stderr
+output/*.stdout
+output/*.spimerr
+output/*.out
+
+ex5/

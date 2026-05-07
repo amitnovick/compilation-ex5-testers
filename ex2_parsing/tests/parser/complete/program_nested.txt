@@ -1,0 +1,12 @@
+void func() {
+    int x := 0;
+    while (x < 10) {
+        if (x < 5) {
+            x := x + 1;
+        } else {
+            while (x < 9) {
+                x := x + 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+int x;
+void func() {
+    int y := 5;
+    if (y < 10) {
+        y := 10;
+    }
+    return y;
+}

@@ -1,0 +1,15 @@
+// Test ASSIGN-005 - Cannot assign different array types (Table 7)
+array gradesArray = int[];
+array IDsArray = int[];
+
+void foo()
+{
+    IDsArray i := new int[8];
+    gradesArray g := new int[8];
+    i := g;
+}
+
+void main()
+{
+    foo();
+}

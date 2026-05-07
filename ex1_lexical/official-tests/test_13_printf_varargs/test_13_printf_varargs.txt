@@ -1,0 +1,10 @@
+void printf(string format, ...)
+{
+    // Do stuff
+    return;
+}
+
+void main()
+{
+    printf("Hello", "World");
+}

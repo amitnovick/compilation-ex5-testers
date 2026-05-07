@@ -1,0 +1,63 @@
+// Complex integration test - Multiple interacting classes
+// Tests class composition and method calls between classes
+
+class Address {
+    string city;
+    int zipCode;
+
+    void setCity(string c) {
+        city := c;
+    }
+
+    string getCity() {
+        return city;
+    }
+}
+
+class Person {
+    string name;
+    int age;
+    Address addr;
+
+    void setAddress(Address a) {
+        addr := a;
+    }
+
+    Address getAddress() {
+        return addr;
+    }
+
+    void setName(string n) {
+        name := n;
+    }
+}
+
+class Company {
+    Person ceo;
+    int employeeCount;
+
+    void setCEO(Person p) {
+        ceo := p;
+    }
+
+    Person getCEO() {
+        return ceo;
+    }
+}
+
+void main() {
+    Address addr := new Address;
+    addr.setCity("TelAviv");
+
+    Person john := new Person;
+    john.setName("John");
+    john.setAddress(addr);
+
+    Company corp := new Company;
+    corp.setCEO(john);
+
+    Person ceo := corp.getCEO();
+    Address ceoAddr := ceo.getAddress();
+    string city := ceoAddr.getCity();
+    PrintString(city);
+}

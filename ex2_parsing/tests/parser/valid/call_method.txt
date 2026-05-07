@@ -1,0 +1,6 @@
+class Calculator { int getZero() { return 0; } }
+
+void func() {
+    Calculator calc := new Calculator;
+    int x := calc.getZero();
+}

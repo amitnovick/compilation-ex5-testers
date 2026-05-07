@@ -1,0 +1,16 @@
+// Tests CLASS-015 - Field cannot shadow superclass method
+// A field in subclass cannot have same name as method in parent
+
+class Parent {
+    void display() {
+        PrintInt(0);
+    }
+}
+
+class Child extends Parent {
+    int display;
+}
+
+void main() {
+    PrintInt(0);
+}

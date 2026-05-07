@@ -1,0 +1,31 @@
+// Tests FUNC-006 - Methods can be called on inherited classes
+// Valid calls to inherited methods
+
+class Animal {
+    string name := "";
+
+    string getName() {
+        return name;
+    }
+
+    void makeSound() {
+        PrintString("SomeSound");
+    }
+}
+
+class Dog extends Animal {
+    int age := 0;
+
+    int getAge() {
+        return age;
+    }
+}
+
+void main() {
+    Dog buddy := new Dog;
+    string petName := buddy.getName();
+    int petAge := buddy.getAge();
+    buddy.makeSound();
+    PrintString(petName);
+    PrintInt(petAge);
+}

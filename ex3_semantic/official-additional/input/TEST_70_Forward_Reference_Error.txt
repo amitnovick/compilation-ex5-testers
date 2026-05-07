@@ -1,0 +1,6 @@
+class A{
+   B b; // Error
+}
+class B { 
+   A a;
+}

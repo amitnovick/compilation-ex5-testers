@@ -1,0 +1,9 @@
+// Test OP-005 to OP-006 - Comparison operations on integers
+void main()
+{
+    int a := 10;
+    int b := 5;
+    int less := a < b;
+    int greater := a > b;
+    PrintInt(less + greater);
+}

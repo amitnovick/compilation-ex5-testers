@@ -1,0 +1,15 @@
+// Tests SCOPE-008 - Function can call itself recursively
+// Valid - Recursive function definition
+
+int countdown(int n) {
+    if (n < 1) {
+        return 0;
+    }
+    PrintInt(n);
+    return countdown(n - 1);
+}
+
+void main() {
+    int result := countdown(5);
+    PrintInt(result);
+}

@@ -1,0 +1,151 @@
+class Node{
+	int value := 0;
+	Node leftChild := nil;
+	Node rightChild := nil;
+	int hasLeft := 0;
+	int hasRight := 0;
+
+	void init(int val) {
+		value := val;
+		leftChild := nil;
+		rightChild := nil;
+		hasLeft := 0;
+		hasRight := 0;
+	}
+
+	void setLeft(Node child) {
+		leftChild := child;
+		hasLeft := 1;
+	}
+
+	void setRight(Node child) {
+		rightChild := child;
+		hasRight := 1;
+	}
+
+	int getValue() {
+		return value;
+	}
+
+	Node deepCopy() {
+		Node newRoot := new Node;
+		newRoot.init(value);
+		if(hasLeft = 1)
+		{
+			newRoot.setLeft(leftChild.deepCopy());
+		}
+		if(hasRight = 1)
+		{
+			newRoot.setRight(rightChild.deepCopy());
+		}
+		return newRoot;
+	}
+	
+	void print() {
+		PrintString("Node");
+		PrintInt(value);
+		if(hasLeft = 1)
+		{
+			PrintString("Leftroot");
+			PrintInt(leftChild.getValue());
+		}
+		if(hasRight = 1)
+		{
+			PrintString("Rightroot");
+			PrintInt(rightChild.getValue());	
+		}
+		if(hasLeft = 1)
+		{
+			leftChild.print();
+		}
+		if(hasRight = 1)
+		{
+			rightChild.print();
+		}
+	}
+
+	void add(int val) {
+		if(val < value)
+		{
+			if(hasLeft = 0)
+			{
+				Node newLeft := new Node;
+				newLeft.init(val);
+				setLeft(newLeft);
+				return;
+			}
+			leftChild.add(val);
+			return;
+		}
+		if(val > value)
+		{
+			if(hasRight = 0)
+			{
+				Node newRight := new Node;
+				newRight.init(val);
+				setRight(newRight);
+				return;
+			}
+			rightChild.add(val);
+			return;
+		}
+		return;
+	}
+
+	void remove(int val)
+	{
+		if(hasLeft = 1)
+		{
+			if(val = leftChild.value){
+				leftChild := nil;
+				hasLeft := 0;
+				return;
+			}
+		}
+		if(rightChild = nil)
+		{
+			if(val = rightChild.value)
+			{
+				rightChild := nil;
+				hasRight := 0;
+				return;
+			}	
+		}
+		if(val < value)
+		{
+			leftChild.remove(val);
+			return;
+		}
+		if(val = value)
+		{
+			leftChild.remove(val);
+			return;
+		}
+		rightChild.remove(val);
+	}
+}
+void main()
+{
+	Node root := new Node;
+	root.init(0);
+	root.add(5);
+	root.add(-3);
+	root.add(23);
+	root.add(245);
+	root.add(-234);
+	root.add(5);
+	root.add(233);
+	root.add(19);
+	root.add(-99);
+	root.add(2333);
+	root.add(0);
+	root.add(-2);
+	root.add(102);
+	root.add(-16);
+
+	PrintString("Beforecopy");
+	root.print();
+	Node copiedRoot := root.deepCopy();
+	PrintString("Aftercopy");
+	copiedRoot.print();
+}

@@ -1,0 +1,24 @@
+// Complex error test - Scope error in sorting function
+// ERROR - Using undeclared variable
+
+array IntArray = int[];
+
+void bubbleSort(IntArray arr, int size) {
+    int i := 0;
+
+    while (i < size) {
+        if (arr[i] > arr[i + 1]) {
+            int temp := arr[i];
+            arr[i] := arr[i + 1];
+            arr[i + 1] := temp;
+        }
+        i := i + 1;
+    }
+
+    PrintInt(temp);
+}
+
+void main() {
+    IntArray numbers := new int[3];
+    bubbleSort(numbers, 3);
+}

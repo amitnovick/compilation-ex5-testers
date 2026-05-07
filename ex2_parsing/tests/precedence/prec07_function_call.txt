@@ -1,0 +1,6 @@
+int getFunc() { return 0; }
+int call(int x) { return x; }
+
+void func() {
+    int x := call(call(5));
+}

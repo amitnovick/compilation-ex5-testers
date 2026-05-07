@@ -1,0 +1,16 @@
+// Test CLASS-009 - Valid method overriding (Table 2)
+class Father
+{
+    int foo(int i) { return 8; }
+}
+
+class Son extends Father
+{
+    int foo(int j) { return j; }
+}
+
+void main()
+{
+    Son s := new Son;
+    PrintInt(s.foo(5));
+}

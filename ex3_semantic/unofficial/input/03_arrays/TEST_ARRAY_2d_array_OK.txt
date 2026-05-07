@@ -1,0 +1,11 @@
+// Test ARRAY-002 - Two-dimensional array (array of arrays)
+array IntArray = int[];
+array IntMatrix = IntArray[];
+
+void main()
+{
+    IntMatrix matrix := new IntArray[3];
+    matrix[0] := new int[5];
+    matrix[0][0] := 42;
+    PrintInt(matrix[0][0]);
+}

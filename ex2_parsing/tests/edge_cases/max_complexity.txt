@@ -1,0 +1,19 @@
+class Base {
+    int baseField;
+    int getField() { return baseField; }
+}
+
+class Derived extends Base {
+    int derivedField;
+    int getTotal() { return baseField + derivedField; }
+}
+
+array IntArray = int[];
+array DerivedArray = Derived[];
+
+void main() {
+    Derived d := new Derived;
+    IntArray arr := new int[10];
+    int result := d.getTotal();
+    arr[0] := result;
+}

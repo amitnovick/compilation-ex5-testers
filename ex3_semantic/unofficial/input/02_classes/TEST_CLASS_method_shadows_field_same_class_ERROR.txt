@@ -1,0 +1,14 @@
+// Tests CLASS-016 - Method cannot shadow field in same class
+// A method and field cannot have the same name in one class
+
+class MyClass {
+    int data;
+
+    void data() {
+        PrintInt(0);
+    }
+}
+
+void main() {
+    PrintInt(0);
+}

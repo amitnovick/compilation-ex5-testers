@@ -1,0 +1,7 @@
+// Tests LIB-002 - PrintString requires string argument
+// ERROR - Calling PrintString with wrong type
+
+void main() {
+    int value := 42;
+    PrintString(value);
+}

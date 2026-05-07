@@ -1,0 +1,9 @@
+// Tests ASSIGN-003 - Assigning array allocation to array variable
+// Array allocation can be assigned to array variable of same type
+
+array IntArray = int[];
+
+void main() {
+    IntArray numbers;
+    numbers := new int[10];
+}

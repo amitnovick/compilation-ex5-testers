@@ -1,0 +1,12 @@
+// Tests OP-015 - Equality testing between array and nil
+// Arrays can be compared with nil for equality
+
+array IntArray = int[];
+
+void main() {
+    IntArray arr;
+    int result;
+    arr := new int[5];
+    result := arr = nil;
+    result := nil = arr;
+}

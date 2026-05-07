@@ -1,0 +1,49 @@
+// Complex integration test - Deep inheritance hierarchy
+// Tests multiple levels of inheritance and method calls and subtype substitution
+
+class Animal {
+    int age := 0;
+
+    int getAge() {
+        return age;
+    }
+
+    void makeSound() {
+        PrintString("SomeSound");
+    }
+}
+
+class Mammal extends Animal {
+    int limbCount;
+
+    int getLimbCount() {
+        return limbCount;
+    }
+}
+
+class Dog extends Mammal {
+    string breed;
+
+    void setBreed(string b) {
+        breed := b;
+    }
+
+    string getBreed() {
+        return breed;
+    }
+}
+
+void processAnimal(Animal a) {
+    int animalAge := a.getAge();
+    PrintInt(animalAge);
+}
+
+void main() {
+    Dog buddy := new Dog;
+    Mammal m := buddy;
+    Animal a := m;
+
+    processAnimal(buddy);
+    processAnimal(m);
+    processAnimal(a);
+}

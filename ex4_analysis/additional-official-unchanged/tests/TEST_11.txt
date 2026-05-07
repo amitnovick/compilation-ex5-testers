@@ -1,0 +1,13 @@
+int g := 0 ;
+void main(){
+
+int x := 0;
+int y := 1;
+if ( y > 0){
+    int x := 1;
+}
+
+y := x + 1;
+
+PrintInt(g);
+}

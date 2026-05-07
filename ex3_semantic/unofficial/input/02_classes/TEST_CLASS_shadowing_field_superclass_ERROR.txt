@@ -1,0 +1,14 @@
+// Tests CLASS-014 - Field cannot shadow superclass field
+// Declaring a field with same name as in parent class is illegal
+
+class Parent {
+    int value;
+}
+
+class Child extends Parent {
+    int value;
+}
+
+void main() {
+    PrintInt(0);
+}

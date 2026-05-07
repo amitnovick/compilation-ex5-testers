@@ -1,0 +1,10 @@
+// Tests LIB-001 and LIB-003 - PrintInt library function with correct type
+// Valid - Calling PrintInt with int argument
+
+void main() {
+    int value := 42;
+    PrintInt(value);
+    PrintInt(100);
+    PrintInt(0);
+    PrintInt(5 + 10);
+}

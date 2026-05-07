@@ -1,0 +1,13 @@
+// Tests OP-010 and OP-013 - Equality testing on arrays of same type
+// Arrays can be compared for equality
+
+array IntArray = int[];
+
+void main() {
+    IntArray arr1;
+    IntArray arr2;
+    int result;
+    arr1 := new int[5];
+    arr2 := new int[5];
+    result := arr1 = arr2;
+}

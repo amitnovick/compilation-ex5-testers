@@ -1,0 +1,11 @@
+// Tests SCOPE-002 - Parameters must be unique
+// ERROR - Duplicate parameter names
+
+int add(int x, int x) {
+    return x + x;
+}
+
+void main() {
+    int result := add(5, 10);
+    PrintInt(result);
+}

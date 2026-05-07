@@ -1,0 +1,16 @@
+// Complex error test - Multiple errors - should report first one
+// ERROR - First error is undefined class (line 5)
+
+class Person {
+    UndefinedClass addr;
+    string name;
+}
+
+void processPerson(Person p) {
+    p.name := 123;
+}
+
+void main() {
+    Person john := new Person;
+    processPerson(john);
+}

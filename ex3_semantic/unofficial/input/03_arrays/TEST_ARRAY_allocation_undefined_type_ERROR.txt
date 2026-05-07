@@ -1,0 +1,7 @@
+// Tests ARRAY-003 - Cannot allocate array of undefined type
+// new UndefinedType[size] is illegal
+
+void main() {
+    UndefinedClass[] arr;
+    arr := new UndefinedClass[10];
+}

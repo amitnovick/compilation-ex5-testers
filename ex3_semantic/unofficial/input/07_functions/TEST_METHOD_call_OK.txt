@@ -1,0 +1,24 @@
+// Tests FUNC-006 and FUNC-007 and FUNC-008 - Method calls on class instances
+// Valid method calls with correct types
+
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int multiply(int x, int y) {
+        return x * y;
+    }
+
+    void printResult(int value) {
+        PrintInt(value);
+    }
+}
+
+void main() {
+    Calculator calc := new Calculator;
+    int sum := calc.add(10, 20);
+    int product := calc.multiply(5, 6);
+    calc.printResult(sum);
+    calc.printResult(product);
+}

@@ -1,0 +1,43 @@
+array StreamArray = int[];
+
+class StreamBase
+{
+    int value;
+}
+
+class StreamNode extends StreamBase
+{
+    string text := "hello";
+}
+
+void consume(int first, string second)
+{
+    return;
+}
+
+void main()
+{
+    StreamArray arrayValue := new int[2];
+    StreamNode hello := new StreamNode;
+    StreamBase empty := nil;
+    int result := 10 + 3 - 2 * 4 / 2;
+
+    arrayValue[0] := result;
+    hello.value := arrayValue[0];
+
+    if (hello.value = result)
+    {
+        hello.value := hello.value + 1;
+    }
+    else
+    {
+        hello.value := hello.value - 1;
+    }
+
+    while (hello.value > 0)
+    {
+        hello.value := hello.value - 1;
+    }
+
+    consume(result, hello.text);
+}

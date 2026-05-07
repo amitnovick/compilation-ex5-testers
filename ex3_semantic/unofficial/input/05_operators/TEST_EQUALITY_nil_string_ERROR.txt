@@ -1,0 +1,9 @@
+// Tests OP-017 - Cannot compare nil with string
+// nil can only be compared with class or array types
+
+void main() {
+    string s;
+    int result;
+    s := "hello";
+    result := s == nil;
+}

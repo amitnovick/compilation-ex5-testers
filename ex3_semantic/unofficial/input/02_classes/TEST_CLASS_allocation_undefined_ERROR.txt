@@ -1,0 +1,7 @@
+// Tests CLASS-004 - Cannot allocate undefined class
+// new UndefinedClass() is illegal
+
+void main() {
+    UndefinedClass obj;
+    obj := new UndefinedClass;
+}

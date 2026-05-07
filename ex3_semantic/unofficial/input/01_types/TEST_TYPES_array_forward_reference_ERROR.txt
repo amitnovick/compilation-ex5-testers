@@ -1,0 +1,9 @@
+// Test TYPE-007 - Array must be defined before use
+IntArray arr;
+
+array IntArray = int[];
+
+void main()
+{
+    arr := new int[5];
+}

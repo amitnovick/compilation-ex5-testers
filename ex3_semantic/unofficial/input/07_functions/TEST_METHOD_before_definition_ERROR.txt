@@ -1,0 +1,17 @@
+// Tests FUNC-006 - Method must be defined before use within class
+// ERROR - Using method before definition (Table 1)
+
+class UseBeforeDef {
+    void foo() {
+        bar(8);
+    }
+
+    void bar(int i) {
+        PrintInt(i);
+    }
+}
+
+void main() {
+    UseBeforeDef obj := new UseBeforeDef;
+    obj.foo();
+}

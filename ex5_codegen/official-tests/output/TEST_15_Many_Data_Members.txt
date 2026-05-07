@@ -1,0 +1,205 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_sum:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	li $t0,4
+	move $v0,$t0
+	j Label_0_sum_end
+Label_0_sum_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_foo_sum:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	lw $s0,8($fp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $t1,68($s0)
+	addi $sp,$sp,-4
+	sw $t1,0($sp)
+	lw $s0,8($fp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $t2,120($s0)
+	lw $t1,0($sp)
+	addi $sp,$sp,4
+	add $t3,$t1,$t2
+	li $s0,32767
+	ble $t3,$s0,clamp_min_ok_1
+	li $t3,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t3,$s0,clamp_done_0
+	li $t3,-32768
+clamp_done_0:
+	move $v0,$t3
+	j Label_1_foo_sum_end
+Label_1_foo_sum_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $a0,132
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t4,$v0
+	li $s0,1
+	sw $s0,0($t4)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,32
+object_zero_loop_0:
+	beq $s1,$zero,object_zero_done_1
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_0
+object_zero_done_1:
+	li $s0,1
+	sw $s0,4($t4)
+	li $s0,2
+	sw $s0,8($t4)
+	li $s0,3
+	sw $s0,12($t4)
+	li $s0,4
+	sw $s0,16($t4)
+	li $s0,5
+	sw $s0,20($t4)
+	li $s0,6
+	sw $s0,24($t4)
+	li $s0,7
+	sw $s0,28($t4)
+	li $s0,8
+	sw $s0,32($t4)
+	li $s0,9
+	sw $s0,36($t4)
+	li $s0,10
+	sw $s0,40($t4)
+	li $s0,11
+	sw $s0,44($t4)
+	li $s0,12
+	sw $s0,48($t4)
+	li $s0,13
+	sw $s0,52($t4)
+	li $s0,14
+	sw $s0,56($t4)
+	li $s0,15
+	sw $s0,60($t4)
+	li $s0,16
+	sw $s0,64($t4)
+	li $s0,17
+	sw $s0,68($t4)
+	li $s0,18
+	sw $s0,72($t4)
+	li $s0,19
+	sw $s0,76($t4)
+	li $s0,20
+	sw $s0,80($t4)
+	li $s0,21
+	sw $s0,84($t4)
+	li $s0,22
+	sw $s0,88($t4)
+	li $s0,23
+	sw $s0,92($t4)
+	li $s0,24
+	sw $s0,96($t4)
+	li $s0,25
+	sw $s0,100($t4)
+	li $s0,26
+	sw $s0,104($t4)
+	li $s0,27
+	sw $s0,108($t4)
+	li $s0,28
+	sw $s0,112($t4)
+	li $s0,29
+	sw $s0,116($t4)
+	li $s0,30
+	sw $s0,120($t4)
+	li $s0,31
+	sw $s0,124($t4)
+	li $s0,32
+	sw $s0,128($t4)
+	sw $t4,-40($fp)
+	lw $t5,-40($fp)
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,1
+	bne $s1,$s2,virtual_dispatch_next_4
+	jal FUNCTION_foo_sum
+	j virtual_dispatch_done_2
+virtual_dispatch_next_4:
+	j virtual_dispatch_fail_3
+virtual_dispatch_fail_3:
+	j invalid_pointer_dereference
+virtual_dispatch_done_2:
+	addi $sp,$sp,4
+	move $t6,$v0
+	move $a0,$t6
+	li $v0,1
+	syscall
+	li $a0,32
+	li $v0,11
+	syscall
+Label_2_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

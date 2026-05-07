@@ -1,0 +1,13 @@
+class Base { int field; }
+class Derived extends Base { int otherField; }
+
+int x;
+
+void func(int param) {
+    x := 5;
+    if (param < 10) {
+        return;
+    } else {
+        return;
+    }
+}

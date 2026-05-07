@@ -1,0 +1,32 @@
+// Edge case - Long inheritance with method override chain
+// Valid - Method overridden through multiple levels
+
+class Base {
+    int compute() {
+        return 1;
+    }
+}
+
+class Mid1 extends Base {
+    int compute() {
+        return 2;
+    }
+}
+
+class Mid2 extends Mid1 {
+    int compute() {
+        return 3;
+    }
+}
+
+class Final extends Mid2 {
+    int compute() {
+        return 4;
+    }
+}
+
+void main() {
+    Final obj := new Final;
+    int result := obj.compute();
+    PrintInt(result);
+}

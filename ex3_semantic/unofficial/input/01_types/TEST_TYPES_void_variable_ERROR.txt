@@ -1,0 +1,7 @@
+// Test TYPE-003 - Void cannot be used for variables
+void x;
+
+void main()
+{
+    PrintInt(5);
+}

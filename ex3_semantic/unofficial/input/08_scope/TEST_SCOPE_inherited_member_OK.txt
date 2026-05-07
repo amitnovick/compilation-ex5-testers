@@ -1,0 +1,26 @@
+// Tests SCOPE-013 - Inherited members accessible in derived class
+// Valid - Accessing superclass members from subclass
+
+class Base {
+    int baseValue;
+
+    int getBase() {
+        return baseValue;
+    }
+}
+
+class Derived extends Base {
+    int derivedValue;
+
+    void process() {
+        baseValue := 10;
+        derivedValue := 20;
+        int sum := getBase() + derivedValue;
+        PrintInt(sum);
+    }
+}
+
+void main() {
+    Derived d := new Derived;
+    d.process();
+}

@@ -1,0 +1,8 @@
+// Test OP-013 - Equality testing on integers
+void main()
+{
+    int a := 10;
+    int b := 10;
+    int result := a = b;
+    PrintInt(result);
+}

@@ -1,0 +1,6 @@
+class Container { array IntArray = int[]; IntArray arr; }
+
+void func() {
+    Container c := new Container;
+    int val := c.arr[5];
+}

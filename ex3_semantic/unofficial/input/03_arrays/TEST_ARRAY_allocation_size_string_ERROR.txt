@@ -1,0 +1,11 @@
+// Tests ARRAY-004 - Array size must be int type
+// Using string as array size is illegal
+
+array IntArray = int[];
+
+void main() {
+    IntArray arr;
+    string size;
+    size := "ten";
+    arr := new int[size];
+}

@@ -1,0 +1,2 @@
+array IntArray = int[];
+IntArray arr := new int[10];

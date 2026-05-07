@@ -1,0 +1,18 @@
+// Tests CLASS-012 - Method override must have same parameter count
+// Overriding with different parameter count is illegal
+
+class Base {
+    void process(int x) {
+        PrintInt(0);
+    }
+}
+
+class Derived extends Base {
+    void process(int x, int y) {
+        PrintInt(0);
+    }
+}
+
+void main() {
+    PrintInt(0);
+}

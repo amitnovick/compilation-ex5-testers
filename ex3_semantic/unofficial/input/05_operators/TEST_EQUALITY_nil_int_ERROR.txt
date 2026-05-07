@@ -1,0 +1,9 @@
+// Tests OP-016 - Cannot compare nil with int
+// nil can only be compared with class or array types
+
+void main() {
+    int x;
+    int result;
+    x := 5;
+    result := x == nil;
+}

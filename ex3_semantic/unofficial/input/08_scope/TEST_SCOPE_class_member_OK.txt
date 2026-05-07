@@ -1,0 +1,31 @@
+// Tests SCOPE-010 - Class members accessible within class methods
+// Valid - Access to class fields and methods
+
+class Employee {
+    string name;
+    int salary;
+
+    void setSalary(int amount) {
+        salary := amount;
+    }
+
+    void setName(string n) {
+        name := n;
+    }
+
+    int getSalary() {
+        return salary;
+    }
+
+    void printInfo() {
+        PrintString(name);
+        PrintInt(getSalary());
+    }
+}
+
+void main() {
+    Employee emp := new Employee;
+    emp.setName("Alice");
+    emp.setSalary(5000);
+    emp.printInfo();
+}

@@ -1,0 +1,18 @@
+int m := 0;
+int n := 3;
+
+void main() {
+    int n;
+    n := 4; 
+    if (n > 2) {
+        int p := 0;
+        if (p < 5) {
+            p := p + 1;
+            if (p = 3) {
+                n := 5;  
+            }
+            m := n * p;
+        }
+    }
+    int q := m + 1;
+}

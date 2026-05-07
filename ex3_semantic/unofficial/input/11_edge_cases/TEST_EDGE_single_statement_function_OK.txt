@@ -1,0 +1,15 @@
+// Edge case - Function with single statement
+// Valid - Minimal function body
+
+int getValue() { return 42; }
+
+string getMessage() { return "hello"; }
+
+void doNothing() { return; }
+
+void main() {
+    int x := getValue();
+    string msg := getMessage();
+    doNothing();
+    PrintInt(x);
+}

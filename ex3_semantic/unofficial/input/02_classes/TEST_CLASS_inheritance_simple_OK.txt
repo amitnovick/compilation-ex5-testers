@@ -1,0 +1,17 @@
+// Test CLASS-005 - Simple inheritance
+class Father
+{
+    int x;
+}
+
+class Son extends Father
+{
+    int y;
+}
+
+void main()
+{
+    Son s := new Son;
+    s.x := 10;
+    s.y := 20;
+}

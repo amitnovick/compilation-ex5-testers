@@ -1,0 +1,12 @@
+{
+  "compiler": {
+    "exit_code": 0
+  },
+  "generated": {
+    "exists": true,
+    "non_empty": true,
+    "contains": [
+      "main"
+    ]
+  }
+}

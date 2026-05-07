@@ -1,0 +1,42 @@
+class classes
+{
+    int field;
+}
+
+class extended extends classes
+{
+    int extra;
+}
+
+array arrays = int[];
+
+int returned(int newObj)
+{
+    return newObj;
+}
+
+void main()
+{
+    int integer := 5;
+    string stringify := "test";
+    int voidFunc := 0;
+    classes classValue := new extended;
+    arrays arrayValue := new int[2];
+    int whileLoop := 1;
+
+    while (whileLoop)
+    {
+        if (integer < 6)
+        {
+            whileLoop := 0;
+        }
+        else
+        {
+            whileLoop := 0;
+        }
+    }
+
+    int ifStatement := returned(integer);
+    int elseClause := ifStatement;
+    int arraysValue := arrayValue[0];
+}

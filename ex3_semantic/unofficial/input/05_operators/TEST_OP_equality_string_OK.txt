@@ -1,0 +1,13 @@
+// Test OP-014 - Equality testing on strings (Table 8)
+int Check(string s)
+{
+    return s = "abc";
+}
+
+void main()
+{
+    string s1 := "def";
+    string s2 := "abc";
+    int i := s1 = s2;
+    PrintInt(Check(s1));
+}

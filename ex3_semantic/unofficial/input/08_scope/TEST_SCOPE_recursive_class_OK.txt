@@ -1,0 +1,22 @@
+// Tests SCOPE-008 - Class can reference itself in definition
+// Valid - Self-referential class (linked list)
+
+class Node {
+    int value;
+    Node next;
+
+    void setNext(Node n) {
+        next := n;
+    }
+
+    Node getNext() {
+        return next;
+    }
+}
+
+void main() {
+    Node first := new Node;
+    Node second := new Node;
+    first.setNext(second);
+    Node retrieved := first.getNext();
+}

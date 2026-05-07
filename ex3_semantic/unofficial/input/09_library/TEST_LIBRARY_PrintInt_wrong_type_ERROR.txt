@@ -1,0 +1,7 @@
+// Tests LIB-001 - PrintInt requires int argument
+// ERROR - Calling PrintInt with wrong type
+
+void main() {
+    string msg := "notAnInteger";
+    PrintInt(msg);
+}

@@ -1,0 +1,7 @@
+// Test ASSIGN-003 - Cannot assign int to string
+void main()
+{
+    int x := 5;
+    string s := x;
+    PrintString(s);
+}

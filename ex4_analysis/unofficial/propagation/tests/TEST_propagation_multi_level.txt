@@ -1,0 +1,7 @@
+int g := 25;
+void main() {
+    int a := g;
+    int b := a;
+    int c := b;
+    int x := c;
+}

@@ -1,0 +1,6 @@
+// Tests LIB-001 - PrintInt requires exactly one argument
+// ERROR - Calling PrintInt with wrong argument count
+
+void main() {
+    PrintInt(10, 20);
+}

@@ -1,0 +1,15 @@
+// Test CLASS-011 - Override with different parameter type (Table 2)
+class Father
+{
+    int foo(Father f) { return 8; }
+}
+
+class Son extends Father
+{
+    int foo(Son s) { return 8; }
+}
+
+void main()
+{
+    Father f := new Father;
+}

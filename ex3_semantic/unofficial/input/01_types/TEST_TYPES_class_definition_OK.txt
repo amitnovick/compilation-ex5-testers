@@ -1,0 +1,17 @@
+// Tests TYPE-003 - Class types are valid type identifiers
+// Tests that a class can be defined and used as a type
+
+class Person {
+    int age;
+    string name;
+
+    void setAge(int a) {
+        age := a;
+    }
+}
+
+void main() {
+    Person p;
+    p := new Person;
+    p.setAge(25);
+}

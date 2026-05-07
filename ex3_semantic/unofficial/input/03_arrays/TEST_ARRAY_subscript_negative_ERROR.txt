@@ -1,0 +1,9 @@
+// Test ARRAY-009 - Array subscript with negative constant is illegal
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[10];
+    arr[-1] := 5;
+    PrintInt(1);
+}

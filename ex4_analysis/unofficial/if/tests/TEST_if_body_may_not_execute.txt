@@ -1,0 +1,6 @@
+void main() {
+    int x := 12;
+    int y := 1;
+    if (y > 0) { x := 1; }
+    int z := x;
+}

@@ -1,0 +1,12 @@
+// Tests CLASS-004 and CLASS-005 - Class allocation and instantiation
+// Tests that classes can be allocated using new
+
+class Point {
+    int x;
+    int y;
+}
+
+void main() {
+    Point p;
+    p := new Point;
+}

@@ -1,0 +1,13 @@
+// Tests TYPE-006 - Types can be used after they are defined
+// Classes and arrays must be defined before use
+
+class Node {
+    int value;
+    Node next;
+}
+
+void main() {
+    Node head;
+    head := new Node;
+    head.value := 10;
+}

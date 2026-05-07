@@ -1,0 +1,21 @@
+// Test CLASS-019 - Subclass can substitute for superclass (Table 3)
+class Father
+{
+    int i;
+}
+
+class Son extends Father
+{
+    int j;
+}
+
+void foo(Father f)
+{
+    PrintInt(f.i);
+}
+
+void main()
+{
+    Son s := new Son;
+    foo(s);
+}

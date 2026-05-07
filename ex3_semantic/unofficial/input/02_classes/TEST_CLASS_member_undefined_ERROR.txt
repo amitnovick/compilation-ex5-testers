@@ -1,0 +1,12 @@
+// Tests CLASS-007 - Cannot access undefined member
+// Accessing non-existent field or method is illegal
+
+class Box {
+    int width;
+}
+
+void main() {
+    Box b;
+    b := new Box;
+    b.height := 10;
+}

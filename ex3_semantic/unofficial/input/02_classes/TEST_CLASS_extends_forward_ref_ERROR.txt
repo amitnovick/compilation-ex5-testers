@@ -1,0 +1,15 @@
+// Test CLASS-003 - Class cannot extend a class defined later (Table 1)
+class Son extends Father
+{
+    int bar;
+}
+
+class Father
+{
+    void foo() { PrintInt(8); }
+}
+
+void main()
+{
+    Son s := new Son;
+}

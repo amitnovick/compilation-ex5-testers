@@ -1,0 +1,2 @@
+/* Comment with invalid char @ */
+int x;

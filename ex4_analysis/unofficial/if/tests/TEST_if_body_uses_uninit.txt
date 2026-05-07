@@ -1,0 +1,5 @@
+void main() {
+    int x := 9;
+    int cond := 1;
+    if (cond > 0) { int y := x; }
+}

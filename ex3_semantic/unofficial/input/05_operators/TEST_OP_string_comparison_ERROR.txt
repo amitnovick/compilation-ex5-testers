@@ -1,0 +1,17 @@
+// Test OP-010 - String comparison is illegal (Table 9)
+class Father
+{
+    string s1;
+    string s2;
+}
+
+void foo(Father f)
+{
+    int i := f.s1 < f.s2;
+}
+
+void main()
+{
+    Father f := new Father;
+    foo(f);
+}

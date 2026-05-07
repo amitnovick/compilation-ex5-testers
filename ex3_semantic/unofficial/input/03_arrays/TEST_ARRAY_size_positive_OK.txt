@@ -1,0 +1,8 @@
+// Test ARRAY-005 - Array allocation with positive constant size
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[10];
+    PrintInt(arr[0]);
+}

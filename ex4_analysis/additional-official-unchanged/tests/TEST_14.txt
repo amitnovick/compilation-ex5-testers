@@ -1,0 +1,8 @@
+int g := 3;
+void main () {
+	int x := g * 2;
+	int y := 2;
+	int z;
+	g := 1;
+	if (y>0) { z := x + 1; }
+}

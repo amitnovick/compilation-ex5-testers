@@ -1,0 +1,80 @@
+test_id,requirement_id,ex5_topic,prior_exercises_excluded
+ir_left_to_right_arguments_preserves_order,FR-001,IR generation,true
+ir_left_to_right_arguments_preserves_order,FR-007,left-to-right evaluation,true
+ir_object_array_operations_generate_expected_structure,FR-001,IR generation,true
+allocation_colorable_temporaries_use_only_t_registers,FR-002,liveness analysis,true
+allocation_colorable_temporaries_use_only_t_registers,FR-003,simplification-based register allocation,true
+allocation_pressure_reports_register_allocation_failed,FR-004,register allocation failure,true
+mips_library_and_heap_runs_under_spim,FR-005,MIPS translation,true
+mips_equality_and_assignment_match_runtime_contract,FR-005,MIPS translation,true
+runtime_saturation_arithmetic_clamps_bounds,FR-006,saturation arithmetic,true
+runtime_left_to_right_evaluation_observable,FR-007,left-to-right evaluation,true
+runtime_division_by_zero_reports_exact_message,FR-008,division by zero runtime error,true
+runtime_invalid_pointer_reports_exact_message,FR-008,invalid pointer runtime error,true
+runtime_access_violation_reports_exact_message,FR-008,out-of-bounds array access runtime error,true
+ir_left_to_right_arguments_preserves_order,FR-007,runtime left to right function arguments,true
+ir_object_array_operations_generate_expected_structure,FR-001,ir object construction,true
+ir_object_array_operations_generate_expected_structure,FR-001,ir array load store,true
+allocation_colorable_temporaries_use_only_t_registers,FR-003,allocation t register compliance,true
+allocation_pressure_reports_register_allocation_failed,FR-004,allocation failure,true
+mips_library_and_heap_runs_under_spim,FR-005,mips library syscalls,true
+mips_library_and_heap_runs_under_spim,FR-005,mips heap allocation,true
+mips_equality_and_assignment_match_runtime_contract,FR-005,mips equality behavior,true
+runtime_saturation_arithmetic_clamps_bounds,FR-006,runtime saturation addition,true
+runtime_saturation_arithmetic_clamps_bounds,FR-006,runtime saturation subtraction,true
+runtime_saturation_arithmetic_clamps_bounds,FR-006,runtime saturation multiplication,true
+runtime_left_to_right_evaluation_observable,FR-007,runtime left to right function arguments,true
+runtime_division_by_zero_reports_exact_message,FR-008,runtime division by zero,true
+runtime_invalid_pointer_reports_exact_message,FR-008,runtime invalid pointer,true
+ir_function_calls_generate_call_path,FR-001,ir function calls,true
+ir_global_initializers_preserve_source_order,FR-007,ir global initialization order,true
+ir_binary_operands_evaluate_left_before_right,FR-007,ir binary operand order,true
+ir_assignment_lhs_evaluates_before_rhs,FR-007,ir assignment operand order,true
+ir_object_construction_initializes_fields,FR-001,ir object construction,true
+ir_array_allocation_load_store_path,FR-001,ir array load store,true
+ir_method_dispatch_generates_virtual_call_path,FR-001,ir method dispatch,true
+ir_string_concat_and_equality_paths,FR-001,ir string concat equality,true
+ir_control_flow_emits_branch_labels,FR-001,ir control flow,true
+ir_return_prologue_epilogue_for_nested_calls,FR-001,ir return prologue epilogue,true
+allocation_colorable_simple_program,FR-003,allocation colorable program,true
+allocation_near_limit_ten_arguments_stays_colorable,FR-003,allocation near limit pressure,true
+allocation_loop_carried_values_stay_colorable,FR-002,allocation loop carried values,true
+allocation_call_preserves_live_values,FR-002,allocation call live values,true
+allocation_branch_join_values_colorable,FR-002,allocation branch join,true
+allocation_array_access_uses_allowed_t_registers,FR-003,allocation scratch registers,true
+allocation_method_call_uses_allowed_t_registers,FR-003,allocation scratch registers,true
+allocation_object_field_pressure_colorable,FR-003,allocation object field pressure,true
+allocation_nested_expression_pressure_colorable,FR-003,allocation nested expression pressure,true
+allocation_pressure_twelve_arguments_reports_failure,FR-004,allocation failure,true
+mips_print_int_trailing_space,FR-005,mips library syscalls,true
+mips_print_string_literal,FR-005,mips library syscalls,true
+mips_integer_multiply_and_divide,FR-005,mips mixed behavior,true
+mips_string_concatenation,FR-005,mips string behavior,true
+mips_string_equality_true_false,FR-005,mips string behavior,true
+mips_array_store_and_load,FR-005,mips array behavior,true
+mips_array_identity_equality,FR-005,mips array behavior,true
+mips_array_identity_equality,FR-005,mips equality behavior,true
+mips_object_field_read_write,FR-005,mips class behavior,true
+mips_object_identity_equality,FR-005,mips class behavior,true
+mips_object_identity_equality,FR-005,mips equality behavior,true
+mips_virtual_method_override_dispatch,FR-005,mips inheritance dispatch,true
+mips_recursive_factorial,FR-005,mips recursion,true
+mips_function_return_value,FR-005,mips functions returns,true
+mips_global_initialization_order,FR-005,mips globals,true
+mips_if_while_control_flow,FR-005,mips if while,true
+mips_mixed_program_behavior,FR-005,mips mixed behavior,true
+runtime_saturation_add_upper_bound,FR-006,runtime saturation addition,true
+runtime_saturation_add_lower_bound,FR-006,runtime saturation addition,true
+runtime_saturation_subtract_upper_bound,FR-006,runtime saturation subtraction,true
+runtime_saturation_subtract_lower_bound,FR-006,runtime saturation subtraction,true
+runtime_saturation_multiply_upper_bound,FR-006,runtime saturation multiplication,true
+runtime_saturation_multiply_lower_bound,FR-006,runtime saturation multiplication,true
+runtime_division_in_range_floor,FR-006,runtime division floor,true
+runtime_left_to_right_binary_operands,FR-007,runtime left to right binary operands,true
+runtime_left_to_right_assignment_operands,FR-007,runtime left to right assignments,true
+runtime_left_to_right_global_initializers,FR-007,runtime left to right global initializers,true
+runtime_division_by_zero_nested_expression,FR-008,runtime division by zero,true
+runtime_invalid_pointer_method_call,FR-008,runtime invalid pointer,true
+runtime_access_violation_negative_index,FR-008,runtime access violation negative index,true
+runtime_access_violation_equal_length_index,FR-008,runtime access violation length index,true
+runtime_access_violation_side_effect_index,FR-008,runtime access violation side effect index,true

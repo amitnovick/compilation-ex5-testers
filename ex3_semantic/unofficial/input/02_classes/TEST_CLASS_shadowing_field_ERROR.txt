@@ -1,0 +1,15 @@
+// Test CLASS-012 - Field cannot shadow inherited field (Table 2)
+class Father
+{
+    int foo;
+}
+
+class Son extends Father
+{
+    string foo;
+}
+
+void main()
+{
+    Son s := new Son;
+}

@@ -1,0 +1,11 @@
+void func() {
+    int x := 5;
+    int y
+    int z := 10;
+    int w := 15;
+    int a := 20;
+    int b
+    int c := 25;
+    int d := 30;
+    int e
+}

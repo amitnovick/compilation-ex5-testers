@@ -1,0 +1,12 @@
+// Tests SCOPE-002 - Class fields must be unique
+// ERROR - Duplicate field declaration in class
+
+class Person {
+    int age;
+    string name;
+    int age;
+}
+
+void main() {
+    Person p := new Person;
+}

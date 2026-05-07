@@ -1,0 +1,6 @@
+int a := 1;
+int b := 7;
+int c := b + 1;
+void main() {
+    int x := a + c;
+}

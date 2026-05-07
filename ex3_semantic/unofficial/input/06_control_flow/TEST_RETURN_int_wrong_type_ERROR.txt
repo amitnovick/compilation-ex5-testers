@@ -1,0 +1,12 @@
+// Tests FUNC-004 - Return type must be compatible with function signature
+// ERROR - Returning wrong type from function
+
+int getNumber() {
+    string msg := "notANumber";
+    return msg;
+}
+
+void main() {
+    int x := getNumber();
+    PrintInt(x);
+}

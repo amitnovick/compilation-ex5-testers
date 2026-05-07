@@ -1,0 +1,49 @@
+array IntArray = int[];
+
+class Base
+{
+    int value;
+}
+
+class Derived extends Base
+{
+    string name := "hello";
+}
+
+void helper(int x, string s)
+{
+    return;
+}
+
+void main()
+{
+    IntArray values := new int[3];
+    Derived myVar := new Derived;
+    Base maybeNil := nil;
+    int n := 123;
+    int calc := n + 1 - 2 * 3 / 4;
+
+    values[0] := calc;
+    myVar.value := values[0];
+
+    if (calc = n)
+    {
+        myVar.value := myVar.value + 1;
+    }
+    else
+    {
+        myVar.value := myVar.value - 1;
+    }
+
+    if (myVar.value < n)
+    {
+        myVar.value := myVar.value + 1;
+    }
+
+    while (myVar.value > 0)
+    {
+        myVar.value := myVar.value - 1;
+    }
+
+    helper(calc, myVar.name);
+}

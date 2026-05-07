@@ -1,0 +1,9 @@
+int a := 0;
+int b := 0;
+
+void main() {
+    int x;
+    int y := a + b; // Error a and b are used before being set
+    x := y + 1; // Error y is not initialized
+    PrintInt(x);
+}

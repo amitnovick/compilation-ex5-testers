@@ -1,0 +1,26 @@
+// Complex integration test - Matrix operations with 2D arrays
+// Tests array definitions and allocation and subscripting
+
+array IntArray = int[];
+array Matrix = IntArray[];
+
+void main() {
+    Matrix mat := new IntArray[3];
+    IntArray row1 := new int[3];
+    IntArray row2 := new int[3];
+    IntArray row3 := new int[3];
+
+    mat[0] := row1;
+    mat[1] := row2;
+    mat[2] := row3;
+
+    mat[0][0] := 1;
+    mat[0][1] := 2;
+    mat[0][2] := 3;
+    mat[1][0] := 4;
+    mat[1][1] := 5;
+    mat[1][2] := 6;
+
+    int value := mat[1][1];
+    PrintInt(value);
+}

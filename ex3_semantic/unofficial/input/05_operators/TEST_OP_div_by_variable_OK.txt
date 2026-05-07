@@ -1,0 +1,8 @@
+// Test OP-012 - Division by variable is allowed (no compile-time check)
+void main()
+{
+    int a := 10;
+    int b := 2;
+    int result := a / b;
+    PrintInt(result);
+}

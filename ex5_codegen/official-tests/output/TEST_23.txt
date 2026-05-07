@@ -1,0 +1,240 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Dog_go:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_0: .asciiz "go"
+.text
+	la $t0,string_literal_0
+	move $a0,$t0
+	li $v0,4
+	syscall
+	li $t2,0
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	li $t3,666
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_1
+	li $t4,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_0
+	li $t4,-32768
+clamp_done_0:
+	move $v0,$t4
+	j Label_0_Dog_go_end
+Label_0_Dog_go_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_SmallDog_go:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_1: .asciiz "no"
+.text
+	la $t5,string_literal_1
+	move $a0,$t5
+	li $v0,4
+	syscall
+	li $t7,-1
+	move $v0,$t7
+	j Label_1_SmallDog_go_end
+Label_1_SmallDog_go_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_BigDog_come:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_2: .asciiz "yes"
+.text
+	la $t8,string_literal_2
+	move $a0,$t8
+	li $v0,4
+	syscall
+	li $t0,2
+	move $v0,$t0
+	j Label_2_BigDog_come_end
+Label_2_BigDog_come_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $a0,16
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t1,$v0
+	li $s0,2
+	sw $s0,0($t1)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,3
+object_zero_loop_0:
+	beq $s1,$zero,object_zero_done_1
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_0
+object_zero_done_1:
+	li $s0,8
+	sw $s0,4($t1)
+.data
+	string_literal_3: .asciiz "RUN"
+.text
+	la $s0,string_literal_3
+	sw $s0,8($t1)
+	sw $t1,-44($fp)
+	li $a0,16
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t2,$v0
+	li $s0,3
+	sw $s0,0($t2)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,3
+object_zero_loop_2:
+	beq $s1,$zero,object_zero_done_3
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_2
+object_zero_done_3:
+	li $s0,8
+	sw $s0,4($t2)
+.data
+	string_literal_4: .asciiz "RUN"
+.text
+	la $s0,string_literal_4
+	sw $s0,8($t2)
+	sw $t2,-48($fp)
+	lw $t3,-44($fp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,2
+	bne $s1,$s2,virtual_dispatch_next_6
+	jal FUNCTION_SmallDog_go
+	j virtual_dispatch_done_4
+virtual_dispatch_next_6:
+	j virtual_dispatch_fail_5
+virtual_dispatch_fail_5:
+	j invalid_pointer_dereference
+virtual_dispatch_done_4:
+	addi $sp,$sp,4
+	move $t4,$v0
+	lw $t5,-48($fp)
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,3
+	bne $s1,$s2,virtual_dispatch_next_9
+	jal FUNCTION_BigDog_come
+	j virtual_dispatch_done_7
+virtual_dispatch_next_9:
+	j virtual_dispatch_fail_8
+virtual_dispatch_fail_8:
+	j invalid_pointer_dereference
+virtual_dispatch_done_7:
+	addi $sp,$sp,4
+	move $t6,$v0
+	lw $t7,-48($fp)
+	addi $sp,$sp,-4
+	sw $t7,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,3
+	bne $s1,$s2,virtual_dispatch_next_12
+	jal FUNCTION_Dog_go
+	j virtual_dispatch_done_10
+virtual_dispatch_next_12:
+	j virtual_dispatch_fail_11
+virtual_dispatch_fail_11:
+	j invalid_pointer_dereference
+virtual_dispatch_done_10:
+	addi $sp,$sp,4
+	move $t8,$v0
+	move $a0,$t8
+	li $v0,1
+	syscall
+	li $a0,32
+	li $v0,11
+	syscall
+Label_3_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

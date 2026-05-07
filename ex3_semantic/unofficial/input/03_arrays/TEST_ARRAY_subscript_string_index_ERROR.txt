@@ -1,0 +1,12 @@
+// Tests ARRAY-007 - Array index must be int type
+// Using string as index is illegal
+
+array IntArray = int[];
+
+void main() {
+    IntArray arr;
+    string index;
+    arr := new int[10];
+    index := "zero";
+    arr[index] := 5;
+}

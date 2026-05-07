@@ -1,0 +1,31 @@
+// Tests FUNC-002 and FUNC-004 - Non-void function must return compatible type
+// Valid non-void functions with proper return values
+
+int getNumber() {
+    return 42;
+}
+
+int add(int a, int b) {
+    return a + b;
+}
+
+string getMessage() {
+    return "HelloWorld";
+}
+
+class Person {
+    int age;
+}
+
+Person createPerson() {
+    Person p := new Person;
+    return p;
+}
+
+void main() {
+    int x := getNumber();
+    int sum := add(5, 10);
+    string msg := getMessage();
+    Person p := createPerson();
+    PrintInt(sum);
+}

@@ -1,0 +1,32 @@
+// Complex integration test - Multi-dimensional arrays
+// Tests array over array and multiple levels of subscripting
+
+array IntArray = int[];
+array IntMatrix = IntArray[];
+array Tensor3D = IntMatrix[];
+
+void main() {
+    Tensor3D cube := new IntMatrix[2];
+    IntMatrix mat1 := new IntArray[2];
+    IntMatrix mat2 := new IntArray[2];
+
+    cube[0] := mat1;
+    cube[1] := mat2;
+
+    IntArray row1 := new int[2];
+    IntArray row2 := new int[2];
+    IntArray row3 := new int[2];
+    IntArray row4 := new int[2];
+
+    mat1[0] := row1;
+    mat1[1] := row2;
+    mat2[0] := row3;
+    mat2[1] := row4;
+
+    cube[0][0][0] := 1;
+    cube[0][0][1] := 2;
+    cube[1][1][1] := 8;
+
+    int value := cube[1][1][1];
+    PrintInt(value);
+}

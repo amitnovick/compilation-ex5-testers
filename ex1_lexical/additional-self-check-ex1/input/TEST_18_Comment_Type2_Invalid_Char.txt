@@ -1,0 +1,4 @@
+void main()
+{
+    int x := 5; /* comment with $ symbol */ int y := 10;
+}

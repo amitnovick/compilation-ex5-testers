@@ -1,0 +1,17 @@
+void main()
+{
+    int a;
+    int b := 6;
+    int c;
+
+    a := 10;
+    PrintInt(a);
+    if (a > 0)
+    {
+        int a := 0;
+        PrintInt(a);
+    }
+    PrintInt(b);
+    c := b;
+    PrintInt(c);
+}

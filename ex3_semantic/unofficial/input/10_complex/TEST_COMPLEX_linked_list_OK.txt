@@ -1,0 +1,42 @@
+// Complex integration test - Linked list implementation
+// Tests classes and self-reference and methods and nil handling
+
+class Node {
+    int value;
+    Node next;
+
+    void setValue(int v) {
+        value := v;
+    }
+
+    int getValue() {
+        return value;
+    }
+
+    void setNext(Node n) {
+        next := n;
+    }
+
+    Node getNext() {
+        return next;
+    }
+}
+
+void main() {
+    Node head := new Node;
+    Node second := new Node;
+    Node third := new Node;
+
+    head.setValue(1);
+    second.setValue(2);
+    third.setValue(3);
+
+    head.setNext(second);
+    second.setNext(third);
+    third.setNext(nil);
+
+    Node current := head;
+    PrintInt(current.getValue());
+    current := current.getNext();
+    PrintInt(current.getValue());
+}

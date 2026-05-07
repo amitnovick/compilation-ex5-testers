@@ -1,0 +1,13 @@
+{
+  "compiler": {
+    "exit_code": 0
+  },
+  "generated": {
+    "exists": true,
+    "non_empty": true,
+    "allowed_registers_only": true,
+    "not_contains": [
+      "Register Allocation Failed"
+    ]
+  }
+}

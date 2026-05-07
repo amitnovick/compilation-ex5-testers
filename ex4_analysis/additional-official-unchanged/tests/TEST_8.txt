@@ -1,0 +1,12 @@
+int g := 0;
+void main() {
+    int x;
+    int y := 1;
+    int z;
+
+    x := 1;
+    if (y > 0) {
+        z := x + g + 1;
+        x := x + 1;
+    }
+}

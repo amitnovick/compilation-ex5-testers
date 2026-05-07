@@ -1,0 +1,10 @@
+// Tests TYPE-008 - void cannot be used for local variables
+// void is only allowed as return type
+
+void foo() {
+    void x;
+}
+
+void main() {
+    PrintInt(0);
+}

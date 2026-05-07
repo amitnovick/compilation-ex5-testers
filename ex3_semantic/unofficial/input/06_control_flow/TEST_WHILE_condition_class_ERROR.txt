@@ -1,0 +1,13 @@
+// Tests FUNC-001 - While condition must be int type
+// ERROR - Using class type as while condition
+
+class Person {
+    int age;
+}
+
+void main() {
+    Person p := new Person;
+    while (p) {
+        PrintInt(42);
+    }
+}

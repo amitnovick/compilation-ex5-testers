@@ -1,0 +1,9 @@
+// Test ARRAY-001 - Basic array definition and usage
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[5];
+    arr[0] := 10;
+    PrintInt(arr[0]);
+}

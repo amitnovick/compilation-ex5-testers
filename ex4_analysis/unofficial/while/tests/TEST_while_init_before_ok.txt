@@ -1,0 +1,5 @@
+void main() {
+    int x := 5;
+    int y := 10;
+    while (y > 0) { int z := x; y := y - 1; }
+}

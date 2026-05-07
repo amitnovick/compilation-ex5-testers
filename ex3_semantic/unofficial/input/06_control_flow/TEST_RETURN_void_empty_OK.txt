@@ -1,0 +1,25 @@
+// Tests FUNC-002 and FUNC-003 - Void function must have empty return
+// Valid void function with empty return statements
+
+void doNothing() {
+    return;
+}
+
+void printMessage() {
+    PrintString("Hello");
+    return;
+}
+
+void conditional() {
+    int x := 5;
+    if (x > 0) {
+        return;
+    }
+    PrintInt(x);
+}
+
+void main() {
+    doNothing();
+    printMessage();
+    conditional();
+}

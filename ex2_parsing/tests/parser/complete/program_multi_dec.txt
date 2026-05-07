@@ -1,0 +1,16 @@
+int globalVar;
+string globalString;
+
+class MyClass {
+    int field;
+}
+
+void func1() {
+    return;
+}
+
+int func2(int x) {
+    return x;
+}
+
+array IntArray = int[];

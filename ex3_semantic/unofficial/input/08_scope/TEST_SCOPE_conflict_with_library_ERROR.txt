@@ -1,0 +1,10 @@
+// Tests SCOPE-011 - Global names must not conflict with library functions
+// ERROR - Redefining library function
+
+void PrintInt(int x) {
+    return;
+}
+
+void main() {
+    PrintInt(42);
+}

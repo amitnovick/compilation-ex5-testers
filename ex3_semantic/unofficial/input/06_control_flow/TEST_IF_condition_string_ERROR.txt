@@ -1,0 +1,9 @@
+// Tests FUNC-001 - If condition must be int type
+// ERROR - Using string as if condition
+
+void main() {
+    string msg := "hello";
+    if (msg) {
+        PrintString("Error");
+    }
+}

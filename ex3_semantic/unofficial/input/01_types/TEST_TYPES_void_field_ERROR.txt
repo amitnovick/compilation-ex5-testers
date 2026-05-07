@@ -1,0 +1,10 @@
+// Test TYPE-005 - Void cannot be used for class fields
+class Foo
+{
+    void x;
+}
+
+void main()
+{
+    Foo f := new Foo;
+}

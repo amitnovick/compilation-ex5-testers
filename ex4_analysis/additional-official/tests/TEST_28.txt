@@ -1,0 +1,19 @@
+int x;
+void main () {
+	int y;
+	x := 1;
+	int z := x * 2;
+	y := z + x;
+	if (y > (z - x)) {
+		y := x;
+		while (z > x) {
+			z := x - 1;
+		}
+	}
+	int a := x / (y - z);
+	PrintInt(x);
+	PrintInt(y);
+	PrintInt(z);
+	PrintInt(a);
+	PrintInt(x + y + z + a);
+}

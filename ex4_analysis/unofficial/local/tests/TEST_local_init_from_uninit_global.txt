@@ -1,0 +1,4 @@
+int g := 4;
+void main() {
+    int x := g + 1;
+}

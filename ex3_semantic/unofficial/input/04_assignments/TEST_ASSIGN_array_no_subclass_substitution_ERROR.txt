@@ -1,0 +1,17 @@
+// Tests ASSIGN-004 - No subclass substitution for arrays
+// Even if B extends A then B[] cannot be assigned to A[]
+
+class Animal {
+    int age;
+}
+
+class Dog extends Animal {
+    string breed;
+}
+
+void main() {
+    Animal[] animals;
+    Dog[] dogs;
+    dogs := new Dog[5];
+    animals := dogs;
+}

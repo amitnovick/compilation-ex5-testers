@@ -1,0 +1,11 @@
+// Tests OP-009 - Cannot compare int and string
+// Equality operators require same types
+
+void main() {
+    int x;
+    string s;
+    int result;
+    x := 5;
+    s := "hello";
+    result := x == s;
+}

@@ -1,0 +1,11 @@
+// Test TYPE-001 - Basic primitive types (int and string)
+int x := 5;
+string s := "hello";
+
+void main()
+{
+    int y := x + 10;
+    string t := s + "world";
+    PrintInt(y);
+    PrintString(t);
+}

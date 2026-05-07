@@ -1,0 +1,13 @@
+// Tests ASSIGN-006 - Assignment between same class types
+// Assigning object of same class type is valid
+
+class Person {
+    string name;
+}
+
+void main() {
+    Person p1;
+    Person p2;
+    p1 := new Person;
+    p2 := p1;
+}

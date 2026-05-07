@@ -1,0 +1,5 @@
+int double(int x) { return x; }
+
+void func() {
+    int y := double(5);
+}

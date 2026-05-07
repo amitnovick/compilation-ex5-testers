@@ -1,0 +1,14 @@
+// Complex error test - Invalid inheritance with tree structure
+// ERROR - Circular inheritance attempt
+
+class TreeNode extends BinaryTree {
+    int data;
+}
+
+class BinaryTree extends TreeNode {
+    TreeNode root;
+}
+
+void main() {
+    TreeNode node := new TreeNode;
+}

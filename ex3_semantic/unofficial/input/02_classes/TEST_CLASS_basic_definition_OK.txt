@@ -1,0 +1,11 @@
+// Test CLASS-001 - Basic class definition and usage
+class Point
+{
+    int x;
+    int y;
+}
+
+void main()
+{
+    Point p := new Point;
+}

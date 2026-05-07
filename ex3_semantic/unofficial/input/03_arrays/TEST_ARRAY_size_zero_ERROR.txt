@@ -1,0 +1,8 @@
+// Test ARRAY-006 - Array allocation with zero constant size is illegal
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[0];
+    PrintInt(1);
+}

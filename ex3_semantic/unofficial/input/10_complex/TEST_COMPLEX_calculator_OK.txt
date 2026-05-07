@@ -1,0 +1,37 @@
+// Complex integration test - Calculator with multiple operations
+// Tests class with methods and operators and return statements
+
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+
+    int multiply(int a, int b) {
+        return a * b;
+    }
+
+    int divide(int a, int b) {
+        return a / b;
+    }
+
+    int compute(int x, int y, int z) {
+        int sum := add(x, y);
+        int product := multiply(sum, z);
+        return product;
+    }
+}
+
+void main() {
+    Calculator calc := new Calculator;
+    int result1 := calc.add(10, 20);
+    int result2 := calc.multiply(5, 6);
+    int result3 := calc.compute(2, 3, 4);
+
+    PrintInt(result1);
+    PrintInt(result2);
+    PrintInt(result3);
+}

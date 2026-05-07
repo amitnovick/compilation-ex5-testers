@@ -1,0 +1,6 @@
+int a := 1;
+int b := 2;
+int c;
+void main() {
+    int dummy := 1;
+}

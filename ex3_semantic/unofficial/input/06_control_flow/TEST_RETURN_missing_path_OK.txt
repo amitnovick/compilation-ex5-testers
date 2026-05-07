@@ -1,0 +1,23 @@
+// Tests FUNC-005 - Functions may have control paths without return
+// Valid - Non-void function does not require return on all paths
+
+int conditionalReturn(int x) {
+    if (x = 7) {
+        return 1;
+    }
+}
+
+int partialReturn(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        if (b > 10) {
+            return b;
+        }
+    }
+}
+
+void main() {
+    int result := conditionalReturn(7);
+    PrintInt(result);
+}

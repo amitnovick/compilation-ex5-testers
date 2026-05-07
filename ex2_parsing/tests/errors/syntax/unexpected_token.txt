@@ -1,0 +1,3 @@
+void func() {
+    int x := 5 class;
+}

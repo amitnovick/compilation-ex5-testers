@@ -1,0 +1,10 @@
+// Test TYPE-002 - Void is allowed as return type
+void foo()
+{
+    PrintInt(5);
+}
+
+void main()
+{
+    foo();
+}

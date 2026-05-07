@@ -1,0 +1,11 @@
+// Edge case - Array size of 1 (minimum positive size)
+// Valid - Array can have size 1
+
+array IntArray = int[];
+
+void main() {
+    IntArray single := new int[1];
+    single[0] := 42;
+    int value := single[0];
+    PrintInt(value);
+}

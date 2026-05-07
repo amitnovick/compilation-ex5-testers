@@ -1,0 +1,9 @@
+// Test ASSIGN-004 - Assign array of same type
+array IntArray = int[];
+
+void main()
+{
+    IntArray a1 := new int[5];
+    IntArray a2 := a1;
+    PrintInt(1);
+}

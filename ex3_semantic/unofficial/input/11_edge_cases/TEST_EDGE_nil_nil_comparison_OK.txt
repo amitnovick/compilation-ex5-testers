@@ -1,0 +1,14 @@
+// Edge case - Comparing nil with nil
+// Valid - nil can be compared with nil
+
+class Person {
+    int age;
+}
+
+void main() {
+    Person p1 := nil;
+    Person p2 := nil;
+
+    int result := p1 = p2;
+    PrintInt(result);
+}

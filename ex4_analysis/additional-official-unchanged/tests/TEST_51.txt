@@ -1,0 +1,20 @@
+void main() {
+  int x;
+  int y;
+  int z;
+  int a := 0;
+  int b;
+  int c := 0;
+  int d := 0;
+  int e;
+  int f := 0;
+  int g;
+
+  x := 1;
+  y := x + 1;
+  z := y + a;
+  b := c + d;
+  e := f + 2;
+  g := x + y + z + a + b + c + d + e + f;
+  PrintInt(g);
+}

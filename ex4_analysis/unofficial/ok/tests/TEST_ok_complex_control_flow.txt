@@ -1,0 +1,8 @@
+void main() {
+    int x := 5;
+    int y := 10;
+    int z := 0;
+    if (x > 0) { z := x + y; }
+    while (y > 0) { z := z + 1; y := y - 1; }
+    PrintInt(z);
+}

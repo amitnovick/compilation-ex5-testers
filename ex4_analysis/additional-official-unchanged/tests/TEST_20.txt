@@ -1,0 +1,9 @@
+int x := 0;
+void main () {
+	while (0=1) {
+		if (0=1) {
+			PrintInt(x);
+		}
+	}
+	
+}

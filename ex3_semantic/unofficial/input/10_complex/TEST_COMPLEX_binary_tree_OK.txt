@@ -1,0 +1,39 @@
+// Complex integration test - Binary tree structure
+// Tests - Self-referential class with multiple fields
+
+class TreeNode {
+    int data;
+    TreeNode left;
+    TreeNode right;
+
+    void setData(int d) {
+        data := d;
+    }
+
+    int getData() {
+        return data;
+    }
+
+    void setLeft(TreeNode l) {
+        left := l;
+    }
+
+    void setRight(TreeNode r) {
+        right := r;
+    }
+}
+
+void main() {
+    TreeNode root := new TreeNode;
+    TreeNode leftChild := new TreeNode;
+    TreeNode rightChild := new TreeNode;
+
+    root.setData(10);
+    leftChild.setData(5);
+    rightChild.setData(15);
+
+    root.setLeft(leftChild);
+    root.setRight(rightChild);
+
+    PrintInt(root.getData());
+}

@@ -1,0 +1,21 @@
+int s := 0;
+int t := 7;
+
+void main() {
+    int t;
+    t := 2;  
+    if (t > 1) {
+        int v := 1;
+        while (v < 10) {
+            if (v / 2 = 0) {  
+                t := t + v;  
+            }
+            if (t > 10) {
+               int x;  
+            }
+            v := v + 1;
+        }
+        s := t * 2;  
+    }
+    int u := s + 3;  
+}

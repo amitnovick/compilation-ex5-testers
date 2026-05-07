@@ -1,0 +1,8 @@
+// Tests ARRAY-006 - Cannot use subscript on non-array type
+// Array subscript only works on array types
+
+void main() {
+    int x;
+    x := 5;
+    x := x[0];
+}

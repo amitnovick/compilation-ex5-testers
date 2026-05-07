@@ -1,0 +1,10 @@
+// Test ARRAY-008 - Array subscript with non-negative constant
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[10];
+    arr[0] := 5;
+    arr[9] := 10;
+    PrintInt(arr[0]);
+}

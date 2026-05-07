@@ -1,0 +1,26 @@
+int count := 0;
+
+void main() {
+    int level1 := 0;
+    while (level1 < 2) {
+        int level2 := 0;
+        while (level2 < 3) {
+            int level3 := 0;
+            while (level3 < 4) {
+                int level4 := 0;
+                while (level4 < 5) {
+                    int level5 := 0;
+                    while (level5 < 6) {
+                        count := count + 1;  
+                        PrintInt(count);
+                    }
+                    level4 := level4 + 1;
+                }
+                level3 := level3 + 1;
+            }
+            level2 := level2 + 1;
+        }
+        level1 := level1 + 1;
+    }
+    int result := count;  
+}

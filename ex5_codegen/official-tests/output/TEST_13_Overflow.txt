@@ -1,0 +1,150 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_foo:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	li $t0,174
+	sw $t0,-36($fp)
+Label_1_loop_start:
+	lw $t1,-36($fp)
+	addi $sp,$sp,-4
+	sw $t1,0($sp)
+	li $t2,32764
+	lw $t1,0($sp)
+	addi $sp,$sp,4
+	slt $t3,$t1,$t2
+	beq $t3,$zero,Label_2_loop_end
+	lw $t4,-36($fp)
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	li $t5,55
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_1
+	li $t6,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_0
+	li $t6,-32768
+clamp_done_0:
+	sw $t6,-36($fp)
+	j Label_1_loop_start
+Label_2_loop_end:
+	lw $t7,-36($fp)
+	addi $sp,$sp,-4
+	sw $t7,0($sp)
+	li $t8,666
+	lw $t7,0($sp)
+	addi $sp,$sp,4
+	add $t9,$t7,$t8
+	li $s0,32767
+	ble $t9,$s0,clamp_min_ok_3
+	li $t9,32767
+	j clamp_done_2
+clamp_min_ok_3:
+	li $s0,-32768
+	bge $t9,$s0,clamp_done_2
+	li $t9,-32768
+clamp_done_2:
+	move $v0,$t9
+	j Label_0_foo_end
+Label_0_foo_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	jal FUNCTION_foo
+	move $t0,$v0
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	jal FUNCTION_foo
+	move $t1,$v0
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_5
+	li $t2,32767
+	j clamp_done_4
+clamp_min_ok_5:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_4
+	li $t2,-32768
+clamp_done_4:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	jal FUNCTION_foo
+	move $t3,$v0
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_7
+	li $t4,32767
+	j clamp_done_6
+clamp_min_ok_7:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_6
+	li $t4,-32768
+clamp_done_6:
+	move $a0,$t4
+	li $v0,1
+	syscall
+	li $a0,32
+	li $v0,11
+	syscall
+Label_3_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

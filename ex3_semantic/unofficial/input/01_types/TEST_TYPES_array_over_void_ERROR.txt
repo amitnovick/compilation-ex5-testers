@@ -1,0 +1,6 @@
+// Tests TYPE-004 - Arrays cannot be defined over void type
+// void[] is illegal
+
+void main() {
+    array VoidArray = void[];
+}

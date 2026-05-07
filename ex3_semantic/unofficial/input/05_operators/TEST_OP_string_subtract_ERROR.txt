@@ -1,0 +1,8 @@
+// Test OP-008 - String subtraction is illegal
+void main()
+{
+    string s1 := "hello";
+    string s2 := "world";
+    string result := s1 - s2;
+    PrintString(result);
+}

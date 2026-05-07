@@ -1,0 +1,8 @@
+// Test ASSIGN-009 - Assign nil to array type
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := nil;
+    PrintInt(1);
+}

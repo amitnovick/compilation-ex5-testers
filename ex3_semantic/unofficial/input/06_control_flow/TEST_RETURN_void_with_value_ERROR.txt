@@ -1,0 +1,11 @@
+// Tests FUNC-003 - Void function must have empty return
+// ERROR - Void function returning a value
+
+void badFunction() {
+    int x := 42;
+    return x;
+}
+
+void main() {
+    badFunction();
+}

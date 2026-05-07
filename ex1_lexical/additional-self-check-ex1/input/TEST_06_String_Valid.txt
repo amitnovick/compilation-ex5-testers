@@ -1,0 +1,6 @@
+void main()
+{
+    string s := "hello";
+    string t := "ABC";
+    string u := "";
+}

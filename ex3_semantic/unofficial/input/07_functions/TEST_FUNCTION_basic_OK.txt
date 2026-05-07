@@ -1,0 +1,23 @@
+// Tests FUNC-006 and FUNC-007 - Basic function definition and call
+// Valid function definition and calling with correct arguments
+
+int add(int a, int b) {
+    return a + b;
+}
+
+string greet(string name) {
+    return "Hello" + name;
+}
+
+void printSum(int x, int y) {
+    int result := add(x, y);
+    PrintInt(result);
+}
+
+void main() {
+    int sum := add(5, 10);
+    string greeting := greet("World");
+    printSum(3, 7);
+    PrintInt(sum);
+    PrintString(greeting);
+}

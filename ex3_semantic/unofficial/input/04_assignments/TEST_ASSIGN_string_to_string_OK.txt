@@ -1,0 +1,8 @@
+// Test ASSIGN-002 - Assign string to string
+void main()
+{
+    string s1 := "hello";
+    string s2 := s1;
+    s2 := s1 + "world";
+    PrintString(s2);
+}

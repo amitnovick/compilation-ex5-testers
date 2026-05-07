@@ -1,0 +1,20 @@
+// Edge case - Function with many parameters
+// Valid - Multiple parameters in function
+
+int sumMany(int a, int b, int c, int d, int e, int f, int g, int h) {
+    int sum := a + b + c + d + e + f + g + h;
+    return sum;
+}
+
+void printMany(string s1, string s2, string s3, string s4) {
+    PrintString(s1);
+    PrintString(s2);
+    PrintString(s3);
+    PrintString(s4);
+}
+
+void main() {
+    int total := sumMany(1, 2, 3, 4, 5, 6, 7, 8);
+    PrintInt(total);
+    printMany("A", "B", "C", "D");
+}

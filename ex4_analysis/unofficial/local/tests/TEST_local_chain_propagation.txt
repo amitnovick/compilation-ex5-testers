@@ -1,0 +1,7 @@
+void main() {
+    int a := 8;
+    int b := a;
+    int c := b;
+    int d := c;
+    int x := d;
+}

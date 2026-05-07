@@ -1,0 +1,602 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_foo:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	li $t0,1
+	sw $t0,-36($fp)
+	li $t1,2
+	sw $t1,-40($fp)
+	li $t2,3
+	sw $t2,-44($fp)
+	li $t3,4
+	sw $t3,-48($fp)
+	li $t4,5
+	sw $t4,-52($fp)
+	li $t5,6
+	sw $t5,-56($fp)
+	li $t6,7
+	sw $t6,-60($fp)
+	li $t7,8
+	sw $t7,-64($fp)
+	li $t8,9
+	sw $t8,-68($fp)
+	li $t9,10
+	sw $t9,-72($fp)
+	li $t0,11
+	sw $t0,-76($fp)
+	li $t1,12
+	sw $t1,-80($fp)
+	li $t2,13
+	sw $t2,-84($fp)
+	li $t3,14
+	sw $t3,-88($fp)
+	li $t4,15
+	sw $t4,-92($fp)
+	li $t5,16
+	sw $t5,-96($fp)
+	li $t6,17
+	sw $t6,-100($fp)
+	li $t7,18
+	sw $t7,-104($fp)
+	li $t8,19
+	sw $t8,-108($fp)
+	li $t9,20
+	sw $t9,-112($fp)
+	li $t0,21
+	sw $t0,-116($fp)
+	li $t1,22
+	sw $t1,-120($fp)
+	li $t2,23
+	sw $t2,-124($fp)
+	li $t3,24
+	sw $t3,-128($fp)
+	li $t4,25
+	sw $t4,-132($fp)
+	li $t5,26
+	sw $t5,-136($fp)
+	li $t6,27
+	sw $t6,-140($fp)
+	li $t7,28
+	sw $t7,-144($fp)
+	li $t8,29
+	sw $t8,-148($fp)
+	li $t9,30
+	sw $t9,-152($fp)
+	li $t0,31
+	sw $t0,-156($fp)
+	li $t1,32
+	sw $t1,-160($fp)
+	lw $t2,-36($fp)
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-40($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_1
+	li $t4,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_0
+	li $t4,-32768
+clamp_done_0:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-44($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_3
+	li $t6,32767
+	j clamp_done_2
+clamp_min_ok_3:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_2
+	li $t6,-32768
+clamp_done_2:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-48($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_5
+	li $t8,32767
+	j clamp_done_4
+clamp_min_ok_5:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_4
+	li $t8,-32768
+clamp_done_4:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-52($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_7
+	li $t0,32767
+	j clamp_done_6
+clamp_min_ok_7:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_6
+	li $t0,-32768
+clamp_done_6:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-56($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_9
+	li $t2,32767
+	j clamp_done_8
+clamp_min_ok_9:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_8
+	li $t2,-32768
+clamp_done_8:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-60($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_11
+	li $t4,32767
+	j clamp_done_10
+clamp_min_ok_11:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_10
+	li $t4,-32768
+clamp_done_10:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-64($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_13
+	li $t6,32767
+	j clamp_done_12
+clamp_min_ok_13:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_12
+	li $t6,-32768
+clamp_done_12:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-68($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_15
+	li $t8,32767
+	j clamp_done_14
+clamp_min_ok_15:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_14
+	li $t8,-32768
+clamp_done_14:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-72($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_17
+	li $t0,32767
+	j clamp_done_16
+clamp_min_ok_17:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_16
+	li $t0,-32768
+clamp_done_16:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-76($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_19
+	li $t2,32767
+	j clamp_done_18
+clamp_min_ok_19:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_18
+	li $t2,-32768
+clamp_done_18:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-80($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_21
+	li $t4,32767
+	j clamp_done_20
+clamp_min_ok_21:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_20
+	li $t4,-32768
+clamp_done_20:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-84($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_23
+	li $t6,32767
+	j clamp_done_22
+clamp_min_ok_23:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_22
+	li $t6,-32768
+clamp_done_22:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-88($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_25
+	li $t8,32767
+	j clamp_done_24
+clamp_min_ok_25:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_24
+	li $t8,-32768
+clamp_done_24:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-92($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_27
+	li $t0,32767
+	j clamp_done_26
+clamp_min_ok_27:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_26
+	li $t0,-32768
+clamp_done_26:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-96($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_29
+	li $t2,32767
+	j clamp_done_28
+clamp_min_ok_29:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_28
+	li $t2,-32768
+clamp_done_28:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-100($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_31
+	li $t4,32767
+	j clamp_done_30
+clamp_min_ok_31:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_30
+	li $t4,-32768
+clamp_done_30:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-104($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_33
+	li $t6,32767
+	j clamp_done_32
+clamp_min_ok_33:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_32
+	li $t6,-32768
+clamp_done_32:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-108($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_35
+	li $t8,32767
+	j clamp_done_34
+clamp_min_ok_35:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_34
+	li $t8,-32768
+clamp_done_34:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-112($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_37
+	li $t0,32767
+	j clamp_done_36
+clamp_min_ok_37:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_36
+	li $t0,-32768
+clamp_done_36:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-116($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_39
+	li $t2,32767
+	j clamp_done_38
+clamp_min_ok_39:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_38
+	li $t2,-32768
+clamp_done_38:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-120($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_41
+	li $t4,32767
+	j clamp_done_40
+clamp_min_ok_41:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_40
+	li $t4,-32768
+clamp_done_40:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-124($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_43
+	li $t6,32767
+	j clamp_done_42
+clamp_min_ok_43:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_42
+	li $t6,-32768
+clamp_done_42:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-128($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_45
+	li $t8,32767
+	j clamp_done_44
+clamp_min_ok_45:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_44
+	li $t8,-32768
+clamp_done_44:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-132($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_47
+	li $t0,32767
+	j clamp_done_46
+clamp_min_ok_47:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_46
+	li $t0,-32768
+clamp_done_46:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-136($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_49
+	li $t2,32767
+	j clamp_done_48
+clamp_min_ok_49:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_48
+	li $t2,-32768
+clamp_done_48:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-140($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_51
+	li $t4,32767
+	j clamp_done_50
+clamp_min_ok_51:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_50
+	li $t4,-32768
+clamp_done_50:
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,-144($fp)
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_53
+	li $t6,32767
+	j clamp_done_52
+clamp_min_ok_53:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_52
+	li $t6,-32768
+clamp_done_52:
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,-148($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	add $t8,$t6,$t7
+	li $s0,32767
+	ble $t8,$s0,clamp_min_ok_55
+	li $t8,32767
+	j clamp_done_54
+clamp_min_ok_55:
+	li $s0,-32768
+	bge $t8,$s0,clamp_done_54
+	li $t8,-32768
+clamp_done_54:
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	lw $t9,-152($fp)
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_57
+	li $t0,32767
+	j clamp_done_56
+clamp_min_ok_57:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_56
+	li $t0,-32768
+clamp_done_56:
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	lw $t1,-156($fp)
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	add $t2,$t0,$t1
+	li $s0,32767
+	ble $t2,$s0,clamp_min_ok_59
+	li $t2,32767
+	j clamp_done_58
+clamp_min_ok_59:
+	li $s0,-32768
+	bge $t2,$s0,clamp_done_58
+	li $t2,-32768
+clamp_done_58:
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,-160($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_61
+	li $t4,32767
+	j clamp_done_60
+clamp_min_ok_61:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_60
+	li $t4,-32768
+clamp_done_60:
+	move $v0,$t4
+	j Label_0_foo_end
+Label_0_foo_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	jal FUNCTION_foo
+	move $t5,$v0
+	move $a0,$t5
+	li $v0,1
+	syscall
+	li $a0,32
+	li $v0,11
+	syscall
+Label_1_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

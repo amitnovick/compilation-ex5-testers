@@ -1,0 +1,4 @@
+int x;
+void func() { return; }
+class MyClass { int field; }
+array IntArray = int[];

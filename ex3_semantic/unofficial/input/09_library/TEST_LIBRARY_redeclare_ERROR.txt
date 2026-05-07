@@ -1,0 +1,8 @@
+// Tests LIB-003 - Library functions cannot be redeclared
+// ERROR - Attempting to redefine library function
+
+int PrintInt := 42;
+
+void main() {
+    PrintInt(100);
+}

@@ -1,0 +1,55 @@
+// Complex integration test - Graph node with adjacency list
+// Tests class composition and arrays of classes
+
+class Node {
+    int id;
+    string label;
+
+    void setId(int i) {
+        id := i;
+    }
+
+    int getId() {
+        return id;
+    }
+}
+
+array NodeArray = Node[];
+
+class Graph {
+    NodeArray nodes;
+    int nodeCount;
+
+    void initialize(int count) {
+        nodes := new Node[count];
+        nodeCount := count;
+    }
+
+    void addNode(int index, Node n) {
+        nodes[index] := n;
+    }
+
+    Node getNode(int index) {
+        return nodes[index];
+    }
+}
+
+void main() {
+    Graph g := new Graph;
+    g.initialize(3);
+
+    Node n1 := new Node;
+    Node n2 := new Node;
+    Node n3 := new Node;
+
+    n1.setId(1);
+    n2.setId(2);
+    n3.setId(3);
+
+    g.addNode(0, n1);
+    g.addNode(1, n2);
+    g.addNode(2, n3);
+
+    Node retrieved := g.getNode(1);
+    PrintInt(retrieved.getId());
+}

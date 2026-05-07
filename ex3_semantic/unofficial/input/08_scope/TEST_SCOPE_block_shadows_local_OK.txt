@@ -1,0 +1,17 @@
+// Tests SCOPE-003 and SCOPE-006 - Block variable can shadow function-scope variable
+// Valid - Variable in nested block shadows outer scope
+
+void process() {
+    int value := 10;
+
+    if (value > 0) {
+        int value := 20;
+        PrintInt(value);
+    }
+
+    PrintInt(value);
+}
+
+void main() {
+    process();
+}

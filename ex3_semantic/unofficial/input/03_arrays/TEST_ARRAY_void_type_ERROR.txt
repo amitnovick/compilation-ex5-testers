@@ -1,0 +1,7 @@
+// Test ARRAY-003 - Array cannot be defined over void type
+array VoidArray = void[];
+
+void main()
+{
+    PrintInt(5);
+}

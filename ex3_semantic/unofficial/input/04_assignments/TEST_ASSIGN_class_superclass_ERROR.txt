@@ -1,0 +1,16 @@
+// Test ASSIGN-007 - Cannot assign superclass to subclass
+class Father
+{
+    int i;
+}
+
+class Son extends Father
+{
+    int j;
+}
+
+void main()
+{
+    Son s := new Father;
+    PrintInt(1);
+}

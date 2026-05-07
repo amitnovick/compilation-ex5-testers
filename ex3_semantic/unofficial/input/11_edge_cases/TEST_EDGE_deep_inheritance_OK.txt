@@ -1,0 +1,28 @@
+// Edge case - Deep inheritance hierarchy (5 levels)
+// Valid - Multiple levels of inheritance
+
+class Level1 {
+    int a;
+}
+
+class Level2 extends Level1 {
+    int b;
+}
+
+class Level3 extends Level2 {
+    int c;
+}
+
+class Level4 extends Level3 {
+    int d;
+}
+
+class Level5 extends Level4 {
+    int e;
+}
+
+void main() {
+    Level5 obj := new Level5;
+    obj.a := 1;
+    obj.e := 5;
+}

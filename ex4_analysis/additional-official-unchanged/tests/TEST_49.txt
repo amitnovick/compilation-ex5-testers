@@ -1,0 +1,9 @@
+int num := 42;
+
+void main() {
+    if (num > 0) {
+        PrintInt(num);  
+        num := 10;   
+    }
+    PrintInt(num);  
+}

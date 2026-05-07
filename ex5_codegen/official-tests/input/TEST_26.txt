@@ -1,0 +1,24 @@
+int f(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, int a17) {
+    int b0 := a0;
+    int b1 := a1;
+    int b2 := a2;
+    int b3 := a3;
+    int b4 := a4;
+    int b5 := a5;
+    int b6 := a6;
+    int b7 := a7;
+    int b8 := a8;
+    int b9 := a9;
+    int b10 := a10;
+    int b11 := a11;
+    int b12 := a12;
+    int b13 := a13;
+    int b14 := a14;
+    int b15 := a15;
+    int b16 := a16;
+    int b17 := a17;
+    return (a0 + b1 + a2 + b3 + a4 + b5 + a6 + b7 + a8 + b9 + a10 + b11 + a12 + b13 + a14 + b15 + a16 + b17);
+}
+void main() {
+    PrintInt(f(0,1,2,3,4,5,6,7,8,9,8,7,6,5,4,3,2,1));
+}

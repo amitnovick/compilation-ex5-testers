@@ -1,0 +1,6 @@
+// Edge case - Minimal valid L program
+// Valid - Program with just main function
+
+void main() {
+    PrintInt(0);
+}

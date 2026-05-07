@@ -1,0 +1,8 @@
+{
+  "compiler": {"exit_code": 0},
+  "generated": {
+    "exists": true,
+    "non_empty": true,
+    "not_contains": ["ERROR", "Register Allocation Failed"]
+  }
+}

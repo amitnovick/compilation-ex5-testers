@@ -1,0 +1,14 @@
+// Tests CLASS-006 and CLASS-007 and CLASS-008 - Member access for fields
+// Tests that fields can be accessed using dot notation
+
+class Rectangle {
+    int width;
+    int height;
+}
+
+void main() {
+    Rectangle r;
+    r := new Rectangle;
+    r.width := 10;
+    r.height := 20;
+}

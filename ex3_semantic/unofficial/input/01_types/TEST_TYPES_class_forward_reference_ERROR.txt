@@ -1,0 +1,12 @@
+// Test TYPE-006 - Class must be defined before use
+Vertex v;
+
+class Vertex
+{
+    int x;
+}
+
+void main()
+{
+    v := new Vertex;
+}

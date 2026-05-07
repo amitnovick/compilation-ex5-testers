@@ -1,0 +1,104 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_MyClass_what:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_0: .asciiz "what"
+.text
+	la $t0,string_literal_0
+	move $a0,$t0
+	li $v0,4
+	syscall
+Label_0_MyClass_what_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $a0,4
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t2,$v0
+	li $s0,1
+	sw $s0,0($t2)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,0
+object_zero_loop_0:
+	beq $s1,$zero,object_zero_done_1
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_0
+object_zero_done_1:
+	sw $t2,-36($fp)
+	lw $t3,-36($fp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,1
+	bne $s1,$s2,virtual_dispatch_next_4
+	jal FUNCTION_MyClass_what
+	j virtual_dispatch_done_2
+virtual_dispatch_next_4:
+	j virtual_dispatch_fail_3
+virtual_dispatch_fail_3:
+	j invalid_pointer_dereference
+virtual_dispatch_done_2:
+	addi $sp,$sp,4
+	move $t4,$v0
+Label_1_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

@@ -1,0 +1,6 @@
+// Tests ARRAY-001 - Cannot define array over undefined type
+// Array base type must be defined
+
+void main() {
+    UndefinedType[] arr;
+}

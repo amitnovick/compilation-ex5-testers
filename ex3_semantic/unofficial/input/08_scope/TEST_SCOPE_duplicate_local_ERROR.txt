@@ -1,0 +1,12 @@
+// Tests SCOPE-002 - Identifiers must be unique within a scope
+// ERROR - Duplicate local variable declaration
+
+void process() {
+    int value := 10;
+    int value := 20;
+    PrintInt(value);
+}
+
+void main() {
+    process();
+}

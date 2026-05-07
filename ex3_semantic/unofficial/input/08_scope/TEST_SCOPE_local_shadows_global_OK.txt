@@ -1,0 +1,14 @@
+// Tests SCOPE-003 and SCOPE-006 - Local variable can shadow global (Table 10)
+// Valid - Local variable shadows global variable
+
+int salary := 7800;
+
+void foo() {
+    string salary := "six";
+    PrintString(salary);
+}
+
+void main() {
+    foo();
+    PrintInt(salary);
+}

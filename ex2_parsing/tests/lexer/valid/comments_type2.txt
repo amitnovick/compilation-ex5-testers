@@ -1,0 +1,7 @@
+/* This is a block comment */
+int x;
+/* Multi-line
+   block
+   comment */
+int y; /* inline block comment */ int z;
+/* Comment at end */

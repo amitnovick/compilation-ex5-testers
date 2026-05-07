@@ -1,0 +1,16 @@
+// Test ASSIGN-006 - Assign subclass to superclass (Table 7)
+class Father
+{
+    int i;
+}
+
+class Son extends Father
+{
+    int j;
+}
+
+void main()
+{
+    Father f := new Son;
+    PrintInt(1);
+}

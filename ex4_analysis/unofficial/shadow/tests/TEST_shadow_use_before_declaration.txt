@@ -1,0 +1,5 @@
+int x := 24;
+void main() {
+    int y := x;
+    int x := 5;
+}

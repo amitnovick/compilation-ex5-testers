@@ -1,0 +1,4 @@
+void main() {
+    int x := 85;
+    x := x + 1;
+}

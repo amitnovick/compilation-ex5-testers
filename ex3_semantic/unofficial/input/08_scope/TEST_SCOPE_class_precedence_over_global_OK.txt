@@ -1,0 +1,22 @@
+// Tests SCOPE-012 and SCOPE-014 - Class method takes precedence over global (Table 10)
+// Valid - Class method shadows global function
+
+int foo(string s) {
+    return 800;
+}
+
+class Father {
+    string foo(string s) {
+        return s;
+    }
+
+    void Print() {
+        string result := foo("Jerry");
+        PrintString(result);
+    }
+}
+
+void main() {
+    Father f := new Father;
+    f.Print();
+}

@@ -1,0 +1,12 @@
+// Tests ARRAY-009 - Array subscript result has element type
+// Accessing array element gives the base type
+
+array IntArray = int[];
+
+void main() {
+    IntArray numbers;
+    int x;
+    numbers := new int[5];
+    x := numbers[0];
+    numbers[1] := 42;
+}

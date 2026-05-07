@@ -1,0 +1,5 @@
+int g := 34;
+void main() {
+    int x := g;
+    PrintInt(x);
+}

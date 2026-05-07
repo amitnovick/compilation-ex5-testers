@@ -1,0 +1,10 @@
+// Test TYPE-004 - Void cannot be used for parameters
+void foo(void x)
+{
+    PrintInt(5);
+}
+
+void main()
+{
+    foo();
+}

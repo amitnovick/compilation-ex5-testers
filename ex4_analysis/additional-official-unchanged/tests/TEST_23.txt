@@ -1,0 +1,4 @@
+int x := 0;
+void main () {
+	int y := 1 - x;
+}

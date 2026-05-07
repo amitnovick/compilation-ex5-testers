@@ -1,0 +1,9 @@
+int g := 5;
+void main() {
+    int x := g;
+    int cond := 1;
+    if (cond > 0) {
+        int z := x;
+        PrintInt(z);
+    }
+}

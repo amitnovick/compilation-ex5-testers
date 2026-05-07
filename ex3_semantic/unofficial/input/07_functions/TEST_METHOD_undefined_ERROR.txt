@@ -1,0 +1,16 @@
+// Tests FUNC-006 - Only defined methods can be called
+// ERROR - Calling undefined method on class
+
+class Person {
+    int age;
+
+    int getAge() {
+        return age;
+    }
+}
+
+void main() {
+    Person p := new Person;
+    string name := p.getName();
+    PrintString(name);
+}

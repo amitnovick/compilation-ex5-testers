@@ -1,0 +1,7 @@
+// Tests FUNC-006 - Only previously defined functions can be called
+// ERROR - Calling undefined function
+
+void main() {
+    int result := calculate(10, 20);
+    PrintInt(result);
+}

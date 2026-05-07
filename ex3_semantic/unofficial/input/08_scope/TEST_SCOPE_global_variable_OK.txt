@@ -1,0 +1,19 @@
+// Tests SCOPE-010 - Global variables accessible from functions
+// Valid - Using global variable in function
+
+int globalCounter := 0;
+string globalMessage := "Hello";
+
+void increment() {
+    globalCounter := globalCounter + 1;
+}
+
+void printGlobals() {
+    PrintInt(globalCounter);
+    PrintString(globalMessage);
+}
+
+void main() {
+    increment();
+    printGlobals();
+}

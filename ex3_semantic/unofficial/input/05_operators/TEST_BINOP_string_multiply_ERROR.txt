@@ -1,0 +1,11 @@
+// Tests OP-001 - String cannot use multiply operator
+// * operator is only for int types
+
+void main() {
+    string s1;
+    string s2;
+    string result;
+    s1 := "hello";
+    s2 := "world";
+    result := s1 * s2;
+}

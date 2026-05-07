@@ -1,0 +1,28 @@
+class TestClass {
+    int x;
+}
+
+array TestArray = int[];
+
+void testFunc() {
+    int x := 5;
+    string s := "hello";
+    TestArray arr := new int[5];
+
+    if (x < 10) {
+        x := 0;
+    } else {
+        while (x > 0) {
+            x := x - 1;
+        }
+    }
+
+    int y := nil;
+    return;
+}
+
+class Derived extends TestClass {
+    void method() {
+        return;
+    }
+}

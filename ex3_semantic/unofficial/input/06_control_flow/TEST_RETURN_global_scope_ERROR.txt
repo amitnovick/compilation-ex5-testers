@@ -1,0 +1,9 @@
+// Tests FUNC-002 - Return statements only allowed inside functions
+// ERROR - Return statement in global scope
+
+int x := 42;
+return x;
+
+void main() {
+    PrintInt(x);
+}

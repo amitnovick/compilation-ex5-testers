@@ -1,0 +1,22 @@
+// Tests CLASS-018 - Transitive inheritance (A B C)
+// Tests that inheritance is transitive across multiple levels
+
+class Animal {
+    int age;
+}
+
+class Mammal extends Animal {
+    int legs;
+}
+
+class Dog extends Mammal {
+    string breed;
+}
+
+void main() {
+    Dog d;
+    d := new Dog;
+    d.age := 5;
+    d.legs := 4;
+    d.breed := "Labrador";
+}

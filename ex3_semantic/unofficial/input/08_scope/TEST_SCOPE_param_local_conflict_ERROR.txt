@@ -1,0 +1,11 @@
+// Tests SCOPE-002 - Parameter and local variable conflict (Table 10)
+// ERROR - Local variable with same name as parameter
+
+void foo(string salary) {
+    int salary := 7800;
+    PrintString(salary);
+}
+
+void main() {
+    foo("test");
+}

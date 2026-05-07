@@ -1,0 +1,5 @@
+int getValue() { return 5; }
+
+void func() {
+    int x := 1 + getValue();
+}

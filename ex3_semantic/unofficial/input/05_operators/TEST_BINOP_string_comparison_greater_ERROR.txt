@@ -1,0 +1,11 @@
+// Tests OP-007 - String cannot use comparison operator
+// Comparison operators are only for int types
+
+void main() {
+    string s1;
+    string s2;
+    int result;
+    s1 := "apple";
+    s2 := "banana";
+    result := s1 > s2;
+}

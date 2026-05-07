@@ -1,0 +1,6 @@
+class Calculator { int add(int a, int b) { return a; } }
+
+void func() {
+    Calculator calc := new Calculator;
+    int result := calc.add(5, 3);
+}

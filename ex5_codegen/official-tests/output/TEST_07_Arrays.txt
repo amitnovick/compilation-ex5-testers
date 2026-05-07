@@ -1,0 +1,433 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Grandfather_WALK:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_0: .asciiz "GrandfatherWALK"
+.text
+	la $t0,string_literal_0
+	move $a0,$t0
+	li $v0,4
+	syscall
+Label_0_Grandfather_WALK_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Grandfather_RUN:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_1: .asciiz "GrandfatherRUN"
+.text
+	la $t2,string_literal_1
+	move $a0,$t2
+	li $v0,4
+	syscall
+Label_1_Grandfather_RUN_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Grandfather_SWIM:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_2: .asciiz "GrandfatherSWIM"
+.text
+	la $t4,string_literal_2
+	move $a0,$t4
+	li $v0,4
+	syscall
+Label_2_Grandfather_SWIM_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Father_SWIM:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_3: .asciiz "FatherSWIM"
+.text
+	la $t6,string_literal_3
+	move $a0,$t6
+	li $v0,4
+	syscall
+Label_3_Father_SWIM_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Father_PAINT:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_4: .asciiz "FatherPAINT"
+.text
+	la $t8,string_literal_4
+	move $a0,$t8
+	li $v0,4
+	syscall
+Label_4_Father_PAINT_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Father_RUN:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_5: .asciiz "FatherRUN"
+.text
+	la $t0,string_literal_5
+	move $a0,$t0
+	li $v0,4
+	syscall
+Label_5_Father_RUN_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Son_RUN:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_6: .asciiz "SonRUN"
+.text
+	la $t2,string_literal_6
+	move $a0,$t2
+	li $v0,4
+	syscall
+Label_6_Son_RUN_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_Son_WALK:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_7: .asciiz "SonWALK"
+.text
+	la $t4,string_literal_7
+	move $a0,$t4
+	li $v0,4
+	syscall
+Label_7_Son_WALK_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $t6,0
+	sw $t6,-48($fp)
+	li $t7,27
+	ble $t7,$zero,access_violation
+	addi $a0,$t7,1
+	sll $a0,$a0,2
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t8,$v0
+	sw $t7,0($t8)
+	sw $t8,-52($fp)
+Label_9_loop_start:
+	lw $t9,-48($fp)
+	addi $sp,$sp,-4
+	sw $t9,0($sp)
+	li $t0,27
+	lw $t9,0($sp)
+	addi $sp,$sp,4
+	slt $t1,$t9,$t0
+	beq $t1,$zero,Label_10_loop_end
+	lw $t2,-52($fp)
+	lw $t3,-48($fp)
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	li $a0,4
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t4,$v0
+	li $s0,2
+	sw $s0,0($t4)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,0
+object_zero_loop_0:
+	beq $s1,$zero,object_zero_done_1
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_0
+object_zero_done_1:
+	lw $t3,0($sp)
+	addi $sp,$sp,4
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	beq $t2,$zero,invalid_pointer_dereference
+	bltz $t3,access_violation
+	lw $s0,0($t2)
+	bge $t3,$s0,access_violation
+	addi $s1,$t3,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t2
+	sw $t4,0($s1)
+	lw $t5,-48($fp)
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	li $t6,1
+	lw $t5,0($sp)
+	addi $sp,$sp,4
+	add $t7,$t5,$t6
+	li $s0,32767
+	ble $t7,$s0,clamp_min_ok_1
+	li $t7,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t7,$s0,clamp_done_0
+	li $t7,-32768
+clamp_done_0:
+	sw $t7,-48($fp)
+	j Label_9_loop_start
+Label_10_loop_end:
+	li $t8,0
+	sw $t8,-48($fp)
+Label_11_loop_start:
+	lw $t9,-48($fp)
+	addi $sp,$sp,-4
+	sw $t9,0($sp)
+	li $t0,11
+	lw $t9,0($sp)
+	addi $sp,$sp,4
+	slt $t1,$t9,$t0
+	beq $t1,$zero,Label_12_loop_end
+	lw $t2,-52($fp)
+	lw $t3,-48($fp)
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	li $a0,4
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t4,$v0
+	li $s0,3
+	sw $s0,0($t4)
+	move $s0,$v0
+	addi $s0,$s0,4
+	li $s1,0
+object_zero_loop_2:
+	beq $s1,$zero,object_zero_done_3
+	sw $zero,0($s0)
+	addi $s0,$s0,4
+	addi $s1,$s1,-1
+	j object_zero_loop_2
+object_zero_done_3:
+	lw $t3,0($sp)
+	addi $sp,$sp,4
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	beq $t2,$zero,invalid_pointer_dereference
+	bltz $t3,access_violation
+	lw $s0,0($t2)
+	bge $t3,$s0,access_violation
+	addi $s1,$t3,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t2
+	sw $t4,0($s1)
+	lw $t5,-48($fp)
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	li $t6,1
+	lw $t5,0($sp)
+	addi $sp,$sp,4
+	add $t7,$t5,$t6
+	li $s0,32767
+	ble $t7,$s0,clamp_min_ok_3
+	li $t7,32767
+	j clamp_done_2
+clamp_min_ok_3:
+	li $s0,-32768
+	bge $t7,$s0,clamp_done_2
+	li $t7,-32768
+clamp_done_2:
+	sw $t7,-48($fp)
+	j Label_11_loop_start
+Label_12_loop_end:
+	lw $t8,-52($fp)
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	li $t9,3
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	beq $t8,$zero,invalid_pointer_dereference
+	bltz $t9,access_violation
+	lw $s0,0($t8)
+	bge $t9,$s0,access_violation
+	addi $s1,$t9,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t8
+	lw $t0,0($s1)
+	sw $t0,-56($fp)
+	lw $t1,-52($fp)
+	addi $sp,$sp,-4
+	sw $t1,0($sp)
+	li $t2,20
+	lw $t1,0($sp)
+	addi $sp,$sp,4
+	beq $t1,$zero,invalid_pointer_dereference
+	bltz $t2,access_violation
+	lw $s0,0($t1)
+	bge $t2,$s0,access_violation
+	addi $s1,$t2,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t1
+	lw $t3,0($s1)
+	sw $t3,-60($fp)
+	lw $t4,-56($fp)
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,1
+	bne $s1,$s2,virtual_dispatch_next_6
+	jal FUNCTION_Grandfather_WALK
+	j virtual_dispatch_done_4
+virtual_dispatch_next_6:
+	li $s2,2
+	bne $s1,$s2,virtual_dispatch_next_7
+	jal FUNCTION_Grandfather_WALK
+	j virtual_dispatch_done_4
+virtual_dispatch_next_7:
+	li $s2,3
+	bne $s1,$s2,virtual_dispatch_next_8
+	jal FUNCTION_Son_WALK
+	j virtual_dispatch_done_4
+virtual_dispatch_next_8:
+	j virtual_dispatch_fail_5
+virtual_dispatch_fail_5:
+	j invalid_pointer_dereference
+virtual_dispatch_done_4:
+	addi $sp,$sp,4
+	move $t5,$v0
+	lw $t6,-60($fp)
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $s0,0($sp)
+	beq $s0,$zero,invalid_pointer_dereference
+	lw $s1,0($s0)
+	li $s2,1
+	bne $s1,$s2,virtual_dispatch_next_11
+	jal FUNCTION_Grandfather_SWIM
+	j virtual_dispatch_done_9
+virtual_dispatch_next_11:
+	li $s2,2
+	bne $s1,$s2,virtual_dispatch_next_12
+	jal FUNCTION_Father_SWIM
+	j virtual_dispatch_done_9
+virtual_dispatch_next_12:
+	li $s2,3
+	bne $s1,$s2,virtual_dispatch_next_13
+	jal FUNCTION_Father_SWIM
+	j virtual_dispatch_done_9
+virtual_dispatch_next_13:
+	j virtual_dispatch_fail_10
+virtual_dispatch_fail_10:
+	j invalid_pointer_dereference
+virtual_dispatch_done_9:
+	addi $sp,$sp,4
+	move $t7,$v0
+Label_8_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

@@ -1,0 +1,9 @@
+// Tests SCOPE-011 - Global names must be distinct
+// ERROR - Duplicate global variable declaration
+
+int counter := 0;
+string counter := "zero";
+
+void main() {
+    PrintInt(counter);
+}

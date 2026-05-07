@@ -1,0 +1,14 @@
+// Tests ARRAY-001 - Arrays can be defined over class types
+// Tests that array of objects is valid
+
+class Student {
+    string name;
+    int grade;
+}
+
+array StudentArray = Student[];
+
+void main() {
+    StudentArray students;
+    students := new Student[10];
+}

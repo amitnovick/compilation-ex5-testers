@@ -1,0 +1,9 @@
+// Tests LIB-002 and LIB-003 - PrintString library function with correct type
+// Valid - Calling PrintString with string argument
+
+void main() {
+    string message := "HelloWorld";
+    PrintString(message);
+    PrintString("DirectString");
+    PrintString("Test" + "concatenation");
+}

@@ -1,0 +1,28 @@
+// Tests FUNC-007 and FUNC-008 - Function calls with correct argument types and count
+// Valid calls with matching parameter types
+
+class Person {
+    int age;
+    string name;
+}
+
+int multiply(int x, int y, int z) {
+    return x * y * z;
+}
+
+Person makePerson(int age, string name) {
+    Person p := new Person;
+    return p;
+}
+
+void processData(string msg, int value, Person p) {
+    PrintString(msg);
+    PrintInt(value);
+}
+
+void main() {
+    int result := multiply(2, 3, 4);
+    Person john := makePerson(25, "John");
+    processData("Test", 42, john);
+    PrintInt(result);
+}

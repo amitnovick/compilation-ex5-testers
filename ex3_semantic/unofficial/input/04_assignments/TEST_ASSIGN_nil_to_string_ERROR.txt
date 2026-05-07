@@ -1,0 +1,7 @@
+// Tests ASSIGN-011 - Cannot assign nil to string
+// nil is only valid for class and array types
+
+void main() {
+    string s;
+    s := nil;
+}

@@ -1,0 +1,7 @@
+class Inner { int value; }
+class Outer { Inner inner; }
+
+void func() {
+    Outer o := new Outer;
+    int val := o.inner.value;
+}

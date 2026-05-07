@@ -1,0 +1,5 @@
+int sum(int x, int y, int z) { return x; }
+
+void func() {
+    int result := sum(1, 2, 3);
+}

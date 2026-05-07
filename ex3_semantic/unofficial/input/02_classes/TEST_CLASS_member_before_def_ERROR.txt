@@ -1,0 +1,11 @@
+// Test CLASS-017 - Cannot use member before definition (Table 1)
+class UseBeforeDef
+{
+    void foo() { PrintInt(i); }
+    int i;
+}
+
+void main()
+{
+    UseBeforeDef obj := new UseBeforeDef;
+}

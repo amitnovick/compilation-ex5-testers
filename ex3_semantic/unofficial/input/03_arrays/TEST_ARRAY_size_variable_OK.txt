@@ -1,0 +1,11 @@
+// Test ARRAY-007 - Array allocation with variable size is allowed (no compile-time check)
+array IntArray = int[];
+
+int getSize() { return 5; }
+
+void main()
+{
+    int size := getSize();
+    IntArray arr := new int[size];
+    PrintInt(1);
+}

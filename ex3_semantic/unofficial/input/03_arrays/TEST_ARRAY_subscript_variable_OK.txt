@@ -1,0 +1,10 @@
+// Test ARRAY-010 - Array subscript with variable is allowed (no compile-time bounds check)
+array IntArray = int[];
+
+void main()
+{
+    IntArray arr := new int[10];
+    int i := 5;
+    arr[i] := 42;
+    PrintInt(arr[i]);
+}

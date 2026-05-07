@@ -1,0 +1,15 @@
+// Test CLASS-010 - Override with different return type (Table 2)
+class Father
+{
+    int foo() { return 8; }
+}
+
+class Son extends Father
+{
+    void foo() { PrintInt(8); }
+}
+
+void main()
+{
+    Son s := new Son;
+}

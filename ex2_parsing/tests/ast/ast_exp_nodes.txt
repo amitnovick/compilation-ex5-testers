@@ -1,0 +1,7 @@
+void func() {
+    int a := 5;
+    int b := 10 + 20;
+    int c := nil;
+    string s := "test";
+    int d := new int[5];
+}

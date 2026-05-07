@@ -1,0 +1,15 @@
+// Tests FUNC-001 - If condition must be int type
+// Valid if statement with integer condition
+
+void main() {
+    int x := 5;
+    int y := 10;
+
+    if (x < y) {
+        PrintInt(x);
+    }
+
+    if (1) {
+        PrintInt(42);
+    }
+}

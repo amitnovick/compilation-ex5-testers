@@ -1,0 +1,2 @@
+array IntArray = int[];
+array StringArray = string[];

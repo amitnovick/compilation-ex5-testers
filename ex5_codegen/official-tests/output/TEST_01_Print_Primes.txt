@@ -1,0 +1,236 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_IsPrime:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	li $t0,2
+	sw $t0,-44($fp)
+	li $t1,2
+	sw $t1,-48($fp)
+Label_1_loop_start:
+	lw $t2,-44($fp)
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	lw $t3,8($fp)
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	slt $t4,$t2,$t3
+	beq $t4,$zero,Label_2_loop_end
+	li $t5,2
+	sw $t5,-48($fp)
+Label_3_loop_start:
+	lw $t6,-48($fp)
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	lw $t7,8($fp)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	slt $t8,$t6,$t7
+	beq $t8,$zero,Label_4_loop_end
+	lw $t9,-44($fp)
+	addi $sp,$sp,-4
+	sw $t9,0($sp)
+	lw $t0,-48($fp)
+	lw $t9,0($sp)
+	addi $sp,$sp,4
+	mul $t1,$t9,$t0
+	li $s0,32767
+	ble $t1,$s0,clamp_min_ok_1
+	li $t1,32767
+	j clamp_done_0
+clamp_min_ok_1:
+	li $s0,-32768
+	bge $t1,$s0,clamp_done_0
+	li $t1,-32768
+clamp_done_0:
+	addi $sp,$sp,-4
+	sw $t1,0($sp)
+	lw $t2,8($fp)
+	lw $t1,0($sp)
+	addi $sp,$sp,4
+	seq $t3,$t1,$t2
+	beq $t3,$zero,Label_6_end_if
+	li $t4,0
+	move $v0,$t4
+	j Label_0_IsPrime_end
+Label_6_end_if:
+	lw $t5,-48($fp)
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	li $t6,1
+	lw $t5,0($sp)
+	addi $sp,$sp,4
+	add $t7,$t5,$t6
+	li $s0,32767
+	ble $t7,$s0,clamp_min_ok_3
+	li $t7,32767
+	j clamp_done_2
+clamp_min_ok_3:
+	li $s0,-32768
+	bge $t7,$s0,clamp_done_2
+	li $t7,-32768
+clamp_done_2:
+	sw $t7,-48($fp)
+	j Label_3_loop_start
+Label_4_loop_end:
+	lw $t8,-44($fp)
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	li $t9,1
+	lw $t8,0($sp)
+	addi $sp,$sp,4
+	add $t0,$t8,$t9
+	li $s0,32767
+	ble $t0,$s0,clamp_min_ok_5
+	li $t0,32767
+	j clamp_done_4
+clamp_min_ok_5:
+	li $s0,-32768
+	bge $t0,$s0,clamp_done_4
+	li $t0,-32768
+clamp_done_4:
+	sw $t0,-44($fp)
+	j Label_1_loop_start
+Label_2_loop_end:
+	li $t1,1
+	move $v0,$t1
+	j Label_0_IsPrime_end
+Label_0_IsPrime_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+FUNCTION_PrintPrimes:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	lw $t2,12($fp)
+	sw $t2,-48($fp)
+Label_8_loop_start:
+	lw $t3,-48($fp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	lw $t4,8($fp)
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	li $t5,1
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	add $t6,$t4,$t5
+	li $s0,32767
+	ble $t6,$s0,clamp_min_ok_7
+	li $t6,32767
+	j clamp_done_6
+clamp_min_ok_7:
+	li $s0,-32768
+	bge $t6,$s0,clamp_done_6
+	li $t6,-32768
+clamp_done_6:
+	lw $t3,0($sp)
+	addi $sp,$sp,4
+	slt $t7,$t3,$t6
+	beq $t7,$zero,Label_9_loop_end
+	lw $t8,-48($fp)
+	addi $sp,$sp,-4
+	sw $t8,0($sp)
+	jal FUNCTION_IsPrime
+	addi $sp,$sp,4
+	move $t9,$v0
+	beq $t9,$zero,Label_11_end_if
+	lw $t0,-48($fp)
+	move $a0,$t0
+	li $v0,1
+	syscall
+	li $a0,32
+	li $v0,11
+	syscall
+Label_11_end_if:
+	lw $t2,-48($fp)
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	li $t3,1
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	add $t4,$t2,$t3
+	li $s0,32767
+	ble $t4,$s0,clamp_min_ok_9
+	li $t4,32767
+	j clamp_done_8
+clamp_min_ok_9:
+	li $s0,-32768
+	bge $t4,$s0,clamp_done_8
+	li $t4,-32768
+clamp_done_8:
+	sw $t4,-48($fp)
+	j Label_8_loop_start
+Label_9_loop_end:
+Label_7_PrintPrimes_end:
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $t5,2
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	li $t6,100
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+	jal FUNCTION_PrintPrimes
+	addi $sp,$sp,8
+	move $t7,$v0
+Label_12_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall

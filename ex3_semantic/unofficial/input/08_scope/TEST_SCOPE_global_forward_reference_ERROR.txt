@@ -1,0 +1,8 @@
+// Tests SCOPE-009 - All identifiers must be declared before use
+// ERROR - Global variable uses undeclared identifier in initialization
+
+int a := b;
+int b;
+void main() {
+    int x := a;
+}

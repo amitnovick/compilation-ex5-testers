@@ -1,0 +1,12 @@
+int num := 5;
+
+void main() {
+    if (num > 0) {
+        PrintInt(num);  
+        num := num + 10; 
+        PrintInt(num); 
+    }
+}
+
+
+int y := num;

@@ -1,0 +1,8 @@
+// Tests CLASS-006 - Member access on non-class type is illegal
+// Cannot use dot notation on primitive types
+
+void main() {
+    int x;
+    x := 5;
+    x.someField := 10;
+}

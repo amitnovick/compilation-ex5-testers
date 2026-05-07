@@ -1,0 +1,11 @@
+// Test ASSIGN-008 - Assign nil to class type (Table 7)
+class Father
+{
+    int i;
+}
+
+void main()
+{
+    Father f := nil;
+    PrintInt(1);
+}

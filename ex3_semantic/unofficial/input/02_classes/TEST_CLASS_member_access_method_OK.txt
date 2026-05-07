@@ -1,0 +1,21 @@
+// Tests CLASS-006 and CLASS-007 - Member access for methods
+// Tests that methods can be called using dot notation
+
+class Counter {
+    int count;
+
+    void increment() {
+        count := count + 1;
+    }
+
+    void reset() {
+        count := 0;
+    }
+}
+
+void main() {
+    Counter c;
+    c := new Counter;
+    c.reset();
+    c.increment();
+}

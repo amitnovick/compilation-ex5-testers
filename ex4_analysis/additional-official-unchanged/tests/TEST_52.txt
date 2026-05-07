@@ -1,0 +1,38 @@
+void main() {
+  int a;
+  int b := 1;
+  int c := 2;
+  int d;
+  int e := 3;
+  int f := 4;
+  int g;
+  int h := 5;
+  int i := 6;
+  int j;
+  int k := 7;
+  int l := 8;
+  int m;
+  int n := 9;
+  int o := 10;
+  int p;
+  int q := 11;
+  int r := 12;
+  int s;
+  int t := 13;
+
+  a := b + c;
+  d := e + f;
+  g := h + i;
+  j := k + l;
+  m := n + o;
+  p := q + r;
+  s := t + a;
+
+  PrintInt(a);
+  PrintInt(d);
+  PrintInt(g);
+  PrintInt(j);
+  PrintInt(m);
+  PrintInt(p);
+  PrintInt(s);
+}

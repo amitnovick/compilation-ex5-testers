@@ -1,0 +1,11 @@
+// Test CLASS-016 - Method overloading is illegal (Table 2)
+class IllegalSameName
+{
+    void foo() { PrintInt(8); }
+    void foo(int i) { PrintInt(i); }
+}
+
+void main()
+{
+    IllegalSameName obj := new IllegalSameName;
+}

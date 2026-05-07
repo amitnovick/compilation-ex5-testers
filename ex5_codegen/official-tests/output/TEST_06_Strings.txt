@@ -1,0 +1,295 @@
+.data
+string_access_violation: .asciiz "Access Violation"
+string_illegal_div_by_0: .asciiz "Illegal Division By Zero"
+string_invalid_ptr_dref: .asciiz "Invalid Pointer Dereference"
+.text
+division_by_zero:
+	la $a0,string_illegal_div_by_0
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+access_violation:
+	la $a0,string_access_violation
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+invalid_pointer_dereference:
+	la $a0,string_invalid_ptr_dref
+	li $v0,4
+	syscall
+	li $v0,10
+	syscall
+FUNCTION___global_init:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+.data
+	string_literal_0: .asciiz "Having"
+	global_s1_5: .word string_literal_0
+.text
+.data
+	string_literal_1: .asciiz "said"
+	global_s2_6: .word string_literal_1
+.text
+.data
+	string_literal_2: .asciiz "that"
+	global_s3_7: .word string_literal_2
+.text
+	move $sp,$fp
+	lw $fp,0($sp)
+	lw $ra,4($sp)
+	addi $sp,$sp,8
+	jr $ra
+.text
+main:
+	addi $sp,$sp,-8
+	sw $fp,0($sp)
+	sw $ra,4($sp)
+	move $fp,$sp
+	addi $sp,$sp,-512
+	move $v0,$zero
+	jal FUNCTION___global_init
+	li $t0,3
+	ble $t0,$zero,access_violation
+	addi $a0,$t0,1
+	sll $a0,$a0,2
+	li $v0,9
+	syscall
+	beq $v0,$zero,access_violation
+	move $t1,$v0
+	sw $t0,0($t1)
+	sw $t1,-48($fp)
+	lw $t2,-48($fp)
+	li $t3,0
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+	addi $sp,$sp,-4
+	sw $t3,0($sp)
+	lw $t4,global_s1_5
+	lw $t3,0($sp)
+	addi $sp,$sp,4
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	beq $t2,$zero,invalid_pointer_dereference
+	bltz $t3,access_violation
+	lw $s0,0($t2)
+	bge $t3,$s0,access_violation
+	addi $s1,$t3,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t2
+	sw $t4,0($s1)
+	lw $t5,-48($fp)
+	li $t6,1
+	addi $sp,$sp,-4
+	sw $t5,0($sp)
+	addi $sp,$sp,-4
+	sw $t6,0($sp)
+.data
+	string_literal_3: .asciiz "Citroen"
+.text
+	la $t7,string_literal_3
+	addi $sp,$sp,-4
+	sw $t7,0($sp)
+	lw $t8,global_s2_6
+	lw $t7,0($sp)
+	addi $sp,$sp,4
+	move $s0,$t7
+	move $s1,$t8
+	li $s2,0
+	move $s3,$s0
+concat_left_len_0:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_right_len_init_1
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_left_len_0
+concat_right_len_init_1:
+	move $s3,$s1
+concat_right_len_2:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_alloc_3
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_right_len_2
+concat_alloc_3:
+	addi $a0,$s2,1
+	li $v0,9
+	syscall
+	move $t9,$v0
+	move $s5,$v0
+	move $s3,$s0
+concat_copy_left_4:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_copy_right_5
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_left_4
+concat_copy_right_5:
+	move $s3,$s1
+concat_copy_right_loop_6:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_done_7
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_right_loop_6
+concat_done_7:
+	sb $zero,0($s5)
+	lw $t6,0($sp)
+	addi $sp,$sp,4
+	lw $t5,0($sp)
+	addi $sp,$sp,4
+	beq $t5,$zero,invalid_pointer_dereference
+	bltz $t6,access_violation
+	lw $s0,0($t5)
+	bge $t6,$s0,access_violation
+	addi $s1,$t6,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t5
+	sw $t9,0($s1)
+	lw $t0,-48($fp)
+	li $t1,2
+	addi $sp,$sp,-4
+	sw $t0,0($sp)
+	addi $sp,$sp,-4
+	sw $t1,0($sp)
+	lw $t2,global_s1_5
+	addi $sp,$sp,-4
+	sw $t2,0($sp)
+.data
+	string_literal_4: .asciiz "said"
+.text
+	la $t3,string_literal_4
+	lw $t2,0($sp)
+	addi $sp,$sp,4
+	move $s0,$t2
+	move $s1,$t3
+	li $s2,0
+	move $s3,$s0
+concat_left_len_8:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_right_len_init_9
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_left_len_8
+concat_right_len_init_9:
+	move $s3,$s1
+concat_right_len_10:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_alloc_11
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_right_len_10
+concat_alloc_11:
+	addi $a0,$s2,1
+	li $v0,9
+	syscall
+	move $t4,$v0
+	move $s5,$v0
+	move $s3,$s0
+concat_copy_left_12:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_copy_right_13
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_left_12
+concat_copy_right_13:
+	move $s3,$s1
+concat_copy_right_loop_14:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_done_15
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_right_loop_14
+concat_done_15:
+	sb $zero,0($s5)
+	addi $sp,$sp,-4
+	sw $t4,0($sp)
+	lw $t5,global_s3_7
+	lw $t4,0($sp)
+	addi $sp,$sp,4
+	move $s0,$t4
+	move $s1,$t5
+	li $s2,0
+	move $s3,$s0
+concat_left_len_16:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_right_len_init_17
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_left_len_16
+concat_right_len_init_17:
+	move $s3,$s1
+concat_right_len_18:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_alloc_19
+	addi $s2,$s2,1
+	addi $s3,$s3,1
+	j concat_right_len_18
+concat_alloc_19:
+	addi $a0,$s2,1
+	li $v0,9
+	syscall
+	move $t6,$v0
+	move $s5,$v0
+	move $s3,$s0
+concat_copy_left_20:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_copy_right_21
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_left_20
+concat_copy_right_21:
+	move $s3,$s1
+concat_copy_right_loop_22:
+	lb $s4,0($s3)
+	beq $s4,$zero,concat_done_23
+	sb $s4,0($s5)
+	addi $s3,$s3,1
+	addi $s5,$s5,1
+	j concat_copy_right_loop_22
+concat_done_23:
+	sb $zero,0($s5)
+	lw $t1,0($sp)
+	addi $sp,$sp,4
+	lw $t0,0($sp)
+	addi $sp,$sp,4
+	beq $t0,$zero,invalid_pointer_dereference
+	bltz $t1,access_violation
+	lw $s0,0($t0)
+	bge $t1,$s0,access_violation
+	addi $s1,$t1,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t0
+	sw $t6,0($s1)
+	lw $t7,-48($fp)
+	addi $sp,$sp,-4
+	sw $t7,0($sp)
+	li $t8,2
+	lw $t7,0($sp)
+	addi $sp,$sp,4
+	beq $t7,$zero,invalid_pointer_dereference
+	bltz $t8,access_violation
+	lw $s0,0($t7)
+	bge $t8,$s0,access_violation
+	addi $s1,$t8,1
+	sll $s1,$s1,2
+	add $s1,$s1,$t7
+	lw $t9,0($s1)
+	move $a0,$t9
+	li $v0,4
+	syscall
+Label_0_main_end:
+	li $v0,10
+	syscall
+	li $v0,10
+	syscall
