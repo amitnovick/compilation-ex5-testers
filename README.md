@@ -1,6 +1,6 @@
 # Compiler Exercise Test Suites
 
-This repository contains Python runners and fixture suites for testing a compiler submission across exercises 1 through 5. The normal entry point is `run_all_suites.py`, which builds the submitted Exercise 5 compiler and then runs each phase-specific suite against the generated `COMPILER` jar.
+This repository contains a submission-zip helper, Python runners, and fixture suites for testing a compiler submission across exercises 1 through 5. The normal workflow is to create a numeric submission zip with `create_ex5_submission.py`, then run `run_all_suites.py`, which builds the submitted Exercise 5 compiler and runs each phase-specific suite against the generated `COMPILER` jar.
 
 ## Prerequisites
 
@@ -10,17 +10,39 @@ This repository contains Python runners and fixture suites for testing a compile
 - SPIM, available as `spim`, for runtime tests that execute generated MIPS.
 - Exactly one numeric submission zip at the repository root, for example `123456789.zip`.
 
-The submission zip must extract an `ex5/` project containing a `Makefile`. The top-level runner runs `make` inside `ex5/` and expects the build to produce `ex5/COMPILER`.
+The source `ex5/` directory must contain a `Makefile`. The generated submission zip extracts to a top-level `ids.txt` and `ex5/` directory. The top-level test runner runs `make` inside `ex5/` and expects the build to produce `ex5/COMPILER`.
 
 ## Quick Start
 
-From the repository root:
+First, create the submission zip from your Exercise 5 project path. Pass the path as a string and provide either one ID or multiple IDs:
+
+```sh
+python3 create_ex5_submission.py "/path/to/ex5" --id 123456789 --output .
+```
+
+For a pair submission:
+
+```sh
+python3 create_ex5_submission.py "/path/to/ex5" --ids 111111111 222222222 --output .
+```
+
+The zip name is based on the first ID, for example `123456789.zip`. Keep exactly one numeric submission zip in this repository root before running the suite.
+
+Then run the test suite from the repository root:
 
 ```sh
 python3 run_all_suites.py
 ```
 
-The runner will:
+The submission helper will:
+
+1. Validate the source `ex5/` directory.
+2. Write `ids.txt`.
+3. Copy the required source paths into a temporary submission tree.
+4. Ignore generated artifacts such as `COMPILER`, generated parser/lexer files, build outputs, and output directories.
+5. Create and validate the numeric submission zip.
+
+The test runner will:
 
 1. Find the single numeric `*.zip` submission in the repository root.
 2. Extract it into the repository.
@@ -35,6 +57,24 @@ Exit codes:
 - `2`: setup or usage error, such as no submission zip, multiple numeric zips, missing runner, missing compiler, or bad suite root.
 
 ## Common Commands
+
+Create a zip in this repository root:
+
+```sh
+python3 create_ex5_submission.py "/absolute/or/relative/path/to/ex5" --id 123456789 --output .
+```
+
+Overwrite an existing zip with the same ID:
+
+```sh
+python3 create_ex5_submission.py "/absolute/or/relative/path/to/ex5" --id 123456789 --output . --force
+```
+
+Include an extra path from inside the source `ex5/` directory:
+
+```sh
+python3 create_ex5_submission.py "/absolute/or/relative/path/to/ex5" --id 123456789 --output . --include README.md
+```
 
 Run all phases:
 
@@ -130,7 +170,9 @@ Use `--help` on any runner to see all filters. Most runners support:
 
 The repository is organized as a thin orchestration layer plus independent phase suites.
 
-`run_all_suites.py` is the orchestrator. It owns submission discovery, unzip, build, phase selection, and the combined summary. It does not implement test assertions itself. Instead, it defines the five phases and delegates to the existing phase runner for each one.
+`create_ex5_submission.py` is the packaging helper. It validates an `ex5/` source directory, writes the top-level `ids.txt`, copies required project paths, filters out generated artifacts, creates `<first-id>.zip`, and verifies the zip structure.
+
+`run_all_suites.py` is the test orchestrator. It owns submission discovery, unzip, build, phase selection, and the combined summary. It does not implement test assertions itself. Instead, it defines the five phases and delegates to the existing phase runner for each one.
 
 The phase directories contain the fixtures and assertion logic for one compiler milestone:
 
