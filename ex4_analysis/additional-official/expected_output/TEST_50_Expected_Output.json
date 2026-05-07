@@ -7,6 +7,6 @@
   },
   "spim": {
     "exit_code": 0,
-    "stdout_contains": "The following symbols are undefined:\nmain"
+    "stdout_not_contains": ["The following symbols are undefined", "main"]
   }
 }
