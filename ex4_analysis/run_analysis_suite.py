@@ -84,7 +84,7 @@ def main(argv: list[str]) -> int:
         if not args.compiler.exists():
             raise FileNotFoundError(f"compiler not found: {args.compiler}")
         cases = load_cases(
-            args.root,
+            resolve_suite_root(args.root),
             category=args.category,
             mode=args.mode,
             case_id=args.case,
@@ -112,6 +112,25 @@ def main(argv: list[str]) -> int:
     if failures:
         return 1
     return 0
+
+
+def resolve_suite_root(root: Path) -> Path:
+    if root.is_dir():
+        return root
+
+    legacy_root = root.parent
+    if root.name == "well_defined_behavior" and looks_like_suite_root(legacy_root):
+        return legacy_root
+
+    return root
+
+
+def looks_like_suite_root(root: Path) -> bool:
+    return (
+        root.is_dir()
+        and any(root.glob("*/expected_output"))
+        and any(root.glob("*/tests"))
+    )
 
 
 def load_cases(
